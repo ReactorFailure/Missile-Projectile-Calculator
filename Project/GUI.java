@@ -1,15 +1,12 @@
 package Project;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -34,6 +31,14 @@ public class GUI extends Application {
 
         Button btn_Launch = new Button("Launch");
         Button btn_Clear = new Button("Clear");
+
+        // Button to clear the differents textfield
+        btn_Clear.setOnAction(e -> {
+            tf_Angle.setText("");
+            tf_Height.setText("");
+            tf_Velocity.setText("");
+            tf_Distance.setText("");
+        });
 
         // GUI
         HBox hb_Angle = new HBox(10, lb_Angle, tf_Angle);
