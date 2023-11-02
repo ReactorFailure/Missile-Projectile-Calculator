@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  *
  * @author Zeyu Huang
  */
-public class GUI extends Application {
+public class run extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
