@@ -48,13 +48,13 @@
                   </HBox>
                   <HBox alignment="CENTER">
                      <children>
-                        <Button fx:id="btn_Switch" mnemonicParsing="false" text="Switch to Slider" />
+                        <Button fx:id="btn_Switch" mnemonicParsing="false" onAction="#switchOnAction" text="Switch to Slider" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefWidth="200.0" spacing="50.0">
                      <children>
-                        <Button fx:id="btn_Launch" mnemonicParsing="false" text="Launch" />
-                        <Button fx:id="btn_Clear" mnemonicParsing="false" text="Clear" />
+                        <Button fx:id="btn_Launch" mnemonicParsing="false" onAction="#LaunchOnAction" text="Launch" />
+                        <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#ClearOnAction" text="Clear" />
                      </children>
                   </HBox>
                </children>
