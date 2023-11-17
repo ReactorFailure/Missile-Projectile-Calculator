@@ -71,7 +71,7 @@ public class GUIController {
 
     @FXML
     void switchOnAction(ActionEvent event) {
-
+        
     }
 
     @FXML

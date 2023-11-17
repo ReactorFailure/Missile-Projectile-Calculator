@@ -6,20 +6,34 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.QuadCurve?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
    <center>
-      <Pane style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+      <Pane style="-fx-background-color: green;" BorderPane.alignment="CENTER">
+         <children>
+            <Line endX="354.6000061035156" layoutX="139.0" layoutY="287.0" startX="-100.0" style="-fx-stroke-width: 5;" />
+            <Line endX="-128.5" endY="-226.60000610351562" layoutX="165.0" layoutY="252.0" startX="-128.5" startY="32.5" style="-fx-stroke-width: 5;" />
+            <ImageView fx:id="rocket_Iv" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/amir.png" />
+               </image>
+            </ImageView>
+            <QuadCurve controlX="-13.800018310546875" controlY="-130.0" endX="211.10000610351562" endY="79.5" fill="#1f93ff00" layoutX="285.0" layoutY="205.0" startX="-246.0" startY="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+         </children></Pane>
    </center>
    <left>
       <StackPane BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" spacing="20.0">
+            <VBox fx:id="vb_TfMode" alignment="CENTER" spacing="20.0">
                <children>
                   <Label text="Please enter values to launch the missile:" wrapText="true" />
                   <HBox>
@@ -62,7 +76,7 @@
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER" spacing="20.0" visible="false">
+            <VBox fx:id="vb_SliderMode" alignment="CENTER" spacing="20.0" visible="false">
                <children>
                   <Label text="Please enter values to launch the missile:" wrapText="true" />
                   <HBox>
