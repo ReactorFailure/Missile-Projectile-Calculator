@@ -35,33 +35,33 @@
    <left>
       <Pane BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="pane_TfMode">
+            <Pane fx:id="pane_TfMode" visible="false">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
-                        <Label text="Please enter values to launch the missile:" wrapText="true" />
+                        <Label alignment="TOP_CENTER" text="Please enter values to launch the missile:" wrapText="true" />
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Angle of launch:" />
-                              <TextField fx:id="tf_AngleOfLaunch" />
+                              <TextField fx:id="tf_AngleOfLaunch" prefHeight="25.0" prefWidth="151.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Height of launch:" />
-                              <TextField fx:id="tf_HeightOfLaunch" />
+                              <TextField fx:id="tf_HeightOfLaunch" prefHeight="25.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Initial velocity:" />
-                              <TextField fx:id="tf_InitialVelocity" />
+                              <TextField fx:id="tf_InitialVelocity" prefHeight="25.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefHeight="18.0" prefWidth="115.0" text="Distance to target:" />
-                              <TextField fx:id="tf_DistanceToTarget" />
+                              <TextField fx:id="tf_DistanceToTarget" prefHeight="25.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER">
@@ -76,33 +76,33 @@
                   </VBox>
                </children>
             </Pane>
-            <Pane fx:id="pane_SliderMode" visible="false">
+            <Pane fx:id="pane_SliderMode">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
-                        <Label text="Please enter values to launch the missile:" wrapText="true" />
+                        <Label alignment="TOP_CENTER" text="Please slide the value to launch the missile:" wrapText="true" />
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Angle of launch:" />
-                              <Slider fx:id="slider_AngleOfLaunch" />
+                              <Slider fx:id="slider_AngleOfLaunch" prefHeight="25.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Height of launch:" />
-                              <Slider fx:id="slider_HeightOfLaunch" />
+                              <Slider fx:id="slider_HeightOfLaunch" prefHeight="25.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Initial velocity:" />
-                              <Slider fx:id="slider_InitialVelocity" />
+                              <Slider fx:id="slider_InitialVelocity" prefHeight="25.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefHeight="18.0" prefWidth="115.0" text="Distance to target:" />
-                              <Slider fx:id="slider_DistanceToTarget" />
+                              <Slider fx:id="slider_DistanceToTarget" prefHeight="25.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER">

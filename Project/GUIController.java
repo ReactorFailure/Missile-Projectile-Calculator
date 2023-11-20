@@ -1,7 +1,5 @@
 package Project;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,7 +7,6 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 
 public class GUIController {
 
@@ -88,7 +85,10 @@ public class GUIController {
 
     @FXML
     void initialize() {
-
+        btn_Clear.setFocusTraversable(false);
+        btn_Launch.setFocusTraversable(false);
+        btn_SwitchSlider.setFocusTraversable(false);
+        btn_SwitchTf.setFocusTraversable(false);
     }
 
 }
