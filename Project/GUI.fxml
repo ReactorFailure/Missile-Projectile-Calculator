@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
@@ -30,12 +29,15 @@
             <QuadCurve controlX="-13.800018310546875" controlY="-130.0" endX="211.10000610351562" endY="79.5" fill="#1f93ff00" layoutX="285.0" layoutY="205.0" startX="-246.0" startY="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
          </children></Pane>
    </center>
+   <bottom>
+      <TextArea disable="true" editable="false" prefHeight="57.0" prefWidth="800.0" text="stuff&#10;" wrapText="true" BorderPane.alignment="CENTER" />
+   </bottom>
    <left>
-      <StackPane BorderPane.alignment="CENTER">
+      <Pane BorderPane.alignment="CENTER">
          <children>
-            <Pane visible="false">
+            <Pane fx:id="pane_TfMode">
                <children>
-                  <VBox fx:id="vb_TfMode" alignment="CENTER" spacing="20.0">
+                  <VBox alignment="CENTER" spacing="20.0">
                      <children>
                         <Label text="Please enter values to launch the missile:" wrapText="true" />
                         <HBox>
@@ -74,9 +76,9 @@
                   </VBox>
                </children>
             </Pane>
-            <Pane>
+            <Pane fx:id="pane_SliderMode" visible="false">
                <children>
-                  <VBox fx:id="vb_SliderMode" alignment="CENTER" spacing="20.0">
+                  <VBox alignment="CENTER" spacing="20.0">
                      <children>
                         <Label text="Please enter values to launch the missile:" wrapText="true" />
                         <HBox>
@@ -115,16 +117,13 @@
                   </VBox>
                </children>
             </Pane>
-            <HBox alignment="BOTTOM_CENTER" prefWidth="200.0" spacing="50.0">
+            <HBox alignment="BOTTOM_CENTER" layoutX="36.0" layoutY="262.0" prefWidth="200.0" spacing="50.0">
                <children>
                   <Button fx:id="btn_Launch" mnemonicParsing="false" onAction="#LaunchOnAction" text="Launch" />
                   <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#ClearOnAction" text="Clear" />
                </children>
             </HBox>
          </children>
-      </StackPane>
+      </Pane>
    </left>
-   <bottom>
-      <TextArea disable="true" editable="false" prefHeight="57.0" prefWidth="800.0" text="stuff&#10;" wrapText="true" BorderPane.alignment="CENTER" />
-   </bottom>
 </BorderPane>
