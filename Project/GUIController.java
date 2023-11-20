@@ -2,38 +2,30 @@ package Project;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 public class GUIController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button btn_Clear;
 
     @FXML
-    private Button btn_Clear1;
-
-    @FXML
     private Button btn_Launch;
 
     @FXML
-    private Button btn_Launch1;
+    private Button btn_SwitchSlider;
 
     @FXML
-    private Button btn_Switch;
+    private Button btn_SwitchTf;
 
     @FXML
-    private Button btn_Switch1;
+    private ImageView rocket_Iv;
 
     @FXML
     private Slider slider_AngleOfLaunch;
@@ -60,8 +52,20 @@ public class GUIController {
     private TextField tf_InitialVelocity;
 
     @FXML
-    void ClearOnAction(ActionEvent event) {
+    private VBox vb_SliderMode;
 
+    @FXML
+    private VBox vb_TfMode;
+
+    // Clear every value given by user
+    @FXML
+    void ClearOnAction(ActionEvent event) {
+        tf_AngleOfLaunch.setText("");
+        tf_DistanceToTarget.setText("");
+        tf_HeightOfLaunch.setText("");
+        tf_InitialVelocity.setText("");
+
+        // --------------------------------------------- Do slider also -------------------------------------------//
     }
 
     @FXML
@@ -70,8 +74,15 @@ public class GUIController {
     }
 
     @FXML
-    void switchOnAction(ActionEvent event) {
-        
+    void switchSliderOnAction(ActionEvent event) {
+        vb_TfMode.setVisible(false);
+        vb_SliderMode.setVisible(true);
+    }
+
+    @FXML
+    void switchTfOnAction(ActionEvent event) {
+        vb_TfMode.setVisible(true);
+        vb_SliderMode.setVisible(false);
     }
 
     @FXML
