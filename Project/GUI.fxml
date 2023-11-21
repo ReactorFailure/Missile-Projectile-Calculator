@@ -30,12 +30,12 @@
          </children></Pane>
    </center>
    <bottom>
-      <TextArea disable="true" editable="false" prefHeight="57.0" prefWidth="800.0" text="stuff&#10;" wrapText="true" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="ta_Messages" disable="true" editable="false" prefHeight="57.0" prefWidth="800.0" text="stuff&#10;" wrapText="true" BorderPane.alignment="CENTER" />
    </bottom>
    <left>
       <Pane BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="pane_TfMode" visible="false">
+            <Pane fx:id="pane_TfMode">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
@@ -43,25 +43,37 @@
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Angle of launch:" />
-                              <TextField fx:id="tf_AngleOfLaunch" prefHeight="25.0" prefWidth="151.0" />
+                              <TextField fx:id="tf_AngleOfLaunch" prefHeight="25.0" prefWidth="151.0">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Height of launch:" />
-                              <TextField fx:id="tf_HeightOfLaunch" prefHeight="25.0" />
+                              <TextField fx:id="tf_HeightOfLaunch" prefHeight="25.0">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Initial velocity:" />
-                              <TextField fx:id="tf_InitialVelocity" prefHeight="25.0" />
+                              <TextField fx:id="tf_InitialVelocity" prefHeight="25.0">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefHeight="18.0" prefWidth="115.0" text="Distance to target:" />
-                              <TextField fx:id="tf_DistanceToTarget" prefHeight="25.0" />
+                              <TextField fx:id="tf_DistanceToTarget" prefHeight="25.0">
+                                 <HBox.margin>
+                                    <Insets bottom="25.0" />
+                                 </HBox.margin></TextField>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER">
@@ -76,7 +88,7 @@
                   </VBox>
                </children>
             </Pane>
-            <Pane fx:id="pane_SliderMode">
+            <Pane fx:id="pane_SliderMode" visible="false">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
@@ -84,25 +96,25 @@
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Angle of launch:" />
-                              <Slider fx:id="slider_AngleOfLaunch" prefHeight="25.0" />
+                              <Slider fx:id="slider_AngleOfLaunch" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Height of launch:" />
-                              <Slider fx:id="slider_HeightOfLaunch" prefHeight="25.0" />
+                              <Slider fx:id="slider_HeightOfLaunch" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefWidth="115.0" text="Initial velocity:" />
-                              <Slider fx:id="slider_InitialVelocity" prefHeight="25.0" />
+                              <Slider fx:id="slider_InitialVelocity" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
                               <Label prefHeight="18.0" prefWidth="115.0" text="Distance to target:" />
-                              <Slider fx:id="slider_DistanceToTarget" prefHeight="25.0" />
+                              <Slider fx:id="slider_DistanceToTarget" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER">
@@ -117,7 +129,7 @@
                   </VBox>
                </children>
             </Pane>
-            <HBox alignment="BOTTOM_CENTER" layoutX="36.0" layoutY="262.0" prefWidth="200.0" spacing="50.0">
+            <HBox alignment="BOTTOM_CENTER" layoutX="36.0" layoutY="369.0" prefWidth="200.0" spacing="50.0">
                <children>
                   <Button fx:id="btn_Launch" mnemonicParsing="false" onAction="#LaunchOnAction" text="Launch" />
                   <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#ClearOnAction" text="Clear" />
