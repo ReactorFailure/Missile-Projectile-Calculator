@@ -16,6 +16,9 @@ public class GUIController {
     ArrayList<TextField> array_TextFields = new ArrayList<>();
     ArrayList<Slider> array_Sliders = new ArrayList<>();
 
+    // Global physics class
+    Physics physics;
+
     @FXML
     private Button btn_Clear;
 
@@ -27,6 +30,9 @@ public class GUIController {
 
     @FXML
     private Button btn_SwitchTf;
+
+    @FXML
+    private Button btn_Update;
 
     @FXML
     private Pane pane_SliderMode;
@@ -41,7 +47,7 @@ public class GUIController {
     private Slider slider_AngleOfLaunch;
 
     @FXML
-    private Slider slider_DistanceToTarget;
+    private Slider slider_GravitationalAcceleration;
 
     @FXML
     private Slider slider_HeightOfLaunch;
@@ -56,7 +62,7 @@ public class GUIController {
     private TextField tf_AngleOfLaunch;
 
     @FXML
-    private TextField tf_DistanceToTarget;
+    private TextField tf_GravitationalAcceleration;
 
     @FXML
     private TextField tf_HeightOfLaunch;
@@ -66,7 +72,7 @@ public class GUIController {
 
     @FXML
     // Clear every value given by user
-    void ClearOnAction(ActionEvent event) {
+    void clearOnAction(ActionEvent event) {
         for (TextField tf : array_TextFields) {
             tf.setText("");
         }
@@ -77,16 +83,9 @@ public class GUIController {
     }
 
     @FXML
-    void LaunchOnAction(ActionEvent event) {
-        // Verify that the textfield has only number
-        for (TextField tf : array_TextFields) {
-            if (!isNumber(tf.getText())) {
-                ta_Messages.setText("Please only input numbers in the textfield");
-                return;
-            }
-        }
-        // Clear the messages if everything is fine
-        ta_Messages.setText("");
+    // Starts the animation
+    void launchOnAction(ActionEvent event) {
+        updateOnAction(event);
     }
 
     @FXML
@@ -114,16 +113,27 @@ public class GUIController {
     }
 
     @FXML
+
+    void updateOnAction(ActionEvent event) {
+        // Check if its in textfield mode
+        if (pane_TfMode.isVisible()) {
+            tfMode();
+        } else {
+            sliderMode();
+        }
+    }
+
+    @FXML
     void initialize() {
         // Arraylist of slider
         array_Sliders.add(slider_AngleOfLaunch);
-        array_Sliders.add(slider_DistanceToTarget);
+        array_Sliders.add(slider_GravitationalAcceleration);
         array_Sliders.add(slider_HeightOfLaunch);
         array_Sliders.add(slider_InitialVelocity);
 
         // Arraylisto of TextFields
         array_TextFields.add(tf_AngleOfLaunch);
-        array_TextFields.add(tf_DistanceToTarget);
+        array_TextFields.add(tf_GravitationalAcceleration);
         array_TextFields.add(tf_HeightOfLaunch);
         array_TextFields.add(tf_InitialVelocity);
 
@@ -147,4 +157,40 @@ public class GUIController {
         }
         return true;
     }
+
+    public void tfMode() {
+        // Verify that the textfield has only number
+        for (TextField tf : array_TextFields) {
+            if (!isNumber(tf.getText())) {
+                ta_Messages.setText("Please only input numbers in the textfield");
+                return;
+            }
+        }
+        // Clear the messages if everything is fine
+        ta_Messages.setText("");
+
+        // To pass the values into the physics class
+        ArrayList<Double> launchValues = new ArrayList<>();
+        for (TextField tf : array_TextFields) {
+            launchValues.add(Double.parseDouble(tf.getText()));
+        }
+
+        // creating object physics
+        physics = new Physics(launchValues);
+    }
+
+    public void sliderMode() {
+        ArrayList<Double> launchValues = new ArrayList<>();
+        for (Slider slider : array_Sliders) {
+            launchValues.add(slider.getValue());
+        }
+    }
+
+    // // Updates the pane and the physics object
+    // public void update() {
+    //     // Check if its in textfield mode
+    //     if (pane_TfMode.isVisible()) {
+    //         tfMode();
+    //     }
+    // }
 }
