@@ -35,7 +35,7 @@
    <left>
       <Pane BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="pane_TfMode">
+            <Pane fx:id="pane_TfMode" visible="false">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
@@ -69,8 +69,8 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefHeight="18.0" prefWidth="115.0" text="Distance to target:" />
-                              <TextField fx:id="tf_DistanceToTarget" prefHeight="25.0">
+                              <Label prefWidth="115.0" text="Gravitational Acceleration:" wrapText="true" />
+                              <TextField fx:id="tf_GravitationalAcceleration" prefHeight="25.0">
                                  <HBox.margin>
                                     <Insets bottom="25.0" />
                                  </HBox.margin></TextField>
@@ -113,8 +113,8 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefHeight="18.0" prefWidth="115.0" text="Distance to target:" />
-                              <Slider fx:id="slider_DistanceToTarget" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
+                              <Label prefWidth="115.0" text="Gravitational Acceleration:" wrapText="true" />
+                              <Slider fx:id="slider_GravitationalAcceleration" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER">
@@ -129,10 +129,11 @@
                   </VBox>
                </children>
             </Pane>
-            <HBox alignment="BOTTOM_CENTER" layoutX="36.0" layoutY="369.0" prefWidth="200.0" spacing="50.0">
+            <HBox alignment="BOTTOM_CENTER" layoutX="17.0" layoutY="369.0" spacing="40.0">
                <children>
-                  <Button fx:id="btn_Launch" mnemonicParsing="false" onAction="#LaunchOnAction" text="Launch" />
-                  <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#ClearOnAction" text="Clear" />
+                  <Button fx:id="btn_Update" mnemonicParsing="false" onAction="#updateOnAction" text="Update" />
+                  <Button fx:id="btn_Launch" mnemonicParsing="false" onAction="#launchOnAction" text="Launch" />
+                  <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
                </children>
             </HBox>
          </children>
