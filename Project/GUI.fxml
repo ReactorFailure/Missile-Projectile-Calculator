@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
    <center>
       <Pane style="-fx-background-color: green;" BorderPane.alignment="CENTER">
          <children>
@@ -35,7 +35,7 @@
    <left>
       <Pane BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="pane_TfMode" visible="false">
+            <Pane id="optionsPane" fx:id="pane_TfMode" visible="false">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
@@ -88,7 +88,7 @@
                   </VBox>
                </children>
             </Pane>
-            <Pane fx:id="pane_SliderMode" visible="false">
+            <Pane id="sliderOptionsPane" fx:id="pane_SliderMode" visible="false">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
@@ -110,6 +110,9 @@
                               <Label prefWidth="115.0" text="Initial velocity:" />
                               <Slider fx:id="slider_InitialVelocity" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                            </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
                         </HBox>
                         <HBox>
                            <children>
@@ -131,9 +134,9 @@
             </Pane>
             <HBox alignment="BOTTOM_CENTER" layoutX="17.0" layoutY="369.0" spacing="40.0">
                <children>
-                  <Button fx:id="btn_Update" mnemonicParsing="false" onAction="#updateOnAction" text="Update" />
-                  <Button fx:id="btn_Launch" mnemonicParsing="false" onAction="#launchOnAction" text="Launch" />
-                  <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
+                  <Button id="updateButton" fx:id="btn_Update" mnemonicParsing="false" onAction="#updateOnAction" text="Update" />
+                  <Button id="launchButton" fx:id="btn_Launch" mnemonicParsing="false" onAction="#launchOnAction" text="Launch" />
+                  <Button id="clearButton" fx:id="btn_Clear" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
                </children>
             </HBox>
          </children>
