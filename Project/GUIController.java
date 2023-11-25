@@ -2,6 +2,7 @@ package Project;
 
 import java.util.ArrayList;
 
+import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +11,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.QuadCurve;
+import javafx.scene.shape.QuadCurveTo;
+import javafx.util.Duration;
 
 public class GUIController {
     // An array list of textfield and slider
@@ -39,6 +44,9 @@ public class GUIController {
 
     @FXML
     private Pane pane_TfMode;
+
+    @FXML
+    private QuadCurve path;
 
     @FXML
     private ImageView rocket_Iv;
@@ -71,6 +79,12 @@ public class GUIController {
     private TextField tf_InitialVelocity;
 
     @FXML
+    private Line x_Axis;
+
+    @FXML
+    private Line y_Axis;
+
+    @FXML
     // Clear every value given by user
     void clearOnAction(ActionEvent event) {
         for (TextField tf : array_TextFields) {
@@ -86,6 +100,7 @@ public class GUIController {
     // Starts the animation
     void launchOnAction(ActionEvent event) {
         updateOnAction(event);
+        animation();
     }
 
     @FXML
@@ -125,6 +140,7 @@ public class GUIController {
 
     @FXML
     void initialize() {
+        // System.out.println(ta_Messages.getX());
         // Arraylist of slider
         array_Sliders.add(slider_AngleOfLaunch);
         array_Sliders.add(slider_GravitationalAcceleration);
@@ -184,13 +200,25 @@ public class GUIController {
         for (Slider slider : array_Sliders) {
             launchValues.add(slider.getValue());
         }
+        System.out.println("Finito");
+    }
+
+    public void animation() {
+        PathTransition transition = new PathTransition(Duration.seconds(10), path);
+        // transition.setPath(path);
+        // System.out.println(y_Axis.getStartY());
+        // System.out.println(y_Axis.getEndY());
+        // System.out.println(x_Axis.getStartY());
+        transition.setNode(rocket_Iv);
+        transition.setCycleCount(1);
+        transition.play();
     }
 
     // // Updates the pane and the physics object
     // public void update() {
-    //     // Check if its in textfield mode
-    //     if (pane_TfMode.isVisible()) {
-    //         tfMode();
-    //     }
+    // // Check if its in textfield mode
+    // if (pane_TfMode.isVisible()) {
+    // tfMode();
+    // }
     // }
 }
