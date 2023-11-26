@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,9 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
-import javafx.scene.shape.QuadCurveTo;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class GUIController {
     // An array list of textfield and slider
@@ -106,9 +103,10 @@ public class GUIController {
     @FXML
     // Starts the animation
     void launchOnAction(ActionEvent event) throws IOException {
-        // updateOnAction(event);
         startAnimation(event);
-        // animation();
+        
+        // Disable launch btn
+        btn_Launch.setDisable(true);
     }
 
     @FXML
@@ -148,7 +146,6 @@ public class GUIController {
 
     @FXML
     void initialize() {
-        // System.out.println(ta_Messages.getX());
         // Arraylist of slider
         array_Sliders.add(slider_AngleOfLaunch);
         array_Sliders.add(slider_GravitationalAcceleration);
@@ -221,39 +218,25 @@ public class GUIController {
         btn_Launch.setDisable(false);
     }
 
-    public void animation() {
-        PathTransition transition = new PathTransition(Duration.seconds(10), path);
-        // transition.setPath(path);
-        // System.out.println(y_Axis.getStartY());
-        // System.out.println(y_Axis.getEndY());
-        // System.out.println(x_Axis.getStartY());
-        transition.setNode(rocket_Iv);
-        transition.setCycleCount(1);
-        transition.play();
-    }
-
-    // // Updates the pane and the physics object
-    // public void update() {
-    // // Check if its in textfield mode
-    // if (pane_TfMode.isVisible()) {
-    // tfMode();
-    // }
-    // }
-
     // Creates another scene and makes it appear on stage
     private void startAnimation(ActionEvent e) throws IOException {
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AnimationScene.fxml"));
-
         Parent root = loader.load();
 
         // Retrieve the controller after loading
         AnimationSceneController controller = loader.getController();
         controller.setPhysics(physics);
+        controller.animation(e);
 
         stage.setScene(new Scene(root));
         stage.setTitle("Animation running");
+        stage.setResizable(false);
         stage.show();
+    }
+
+    public void onReturn(Physics phy, ActionEvent e) {
+        
     }
 }
