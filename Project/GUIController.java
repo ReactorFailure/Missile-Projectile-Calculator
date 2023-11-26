@@ -1,10 +1,15 @@
 package Project;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
@@ -14,6 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
 import javafx.scene.shape.QuadCurveTo;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class GUIController {
@@ -98,9 +104,10 @@ public class GUIController {
 
     @FXML
     // Starts the animation
-    void launchOnAction(ActionEvent event) {
-        updateOnAction(event);
-        animation();
+    void launchOnAction(ActionEvent event) throws IOException {
+        // updateOnAction(event);
+        startAnimation(event);
+        // animation();
     }
 
     @FXML
@@ -162,10 +169,13 @@ public class GUIController {
         // Always start with the text field mode
         pane_SliderMode.setVisible(false);
         pane_TfMode.setVisible(true);
+
+        // Have the launch button disable
+        btn_Launch.setDisable(true);
     }
 
     // To Check if a string is a number
-    public boolean isNumber(String str) {
+    private boolean isNumber(String str) {
         try {
             Double.parseDouble(str);
         } catch (Exception e) {
@@ -174,7 +184,7 @@ public class GUIController {
         return true;
     }
 
-    public void tfMode() {
+    private void tfMode() {
         // Verify that the textfield has only number
         for (TextField tf : array_TextFields) {
             if (!isNumber(tf.getText())) {
@@ -193,14 +203,21 @@ public class GUIController {
 
         // creating object physics
         physics = new Physics(launchValues);
+
+        // Reenabling the launch btn
+        btn_Launch.setDisable(false);
     }
 
-    public void sliderMode() {
+    private void sliderMode() {
         ArrayList<Double> launchValues = new ArrayList<>();
         for (Slider slider : array_Sliders) {
             launchValues.add(slider.getValue());
         }
-        System.out.println("Finito");
+
+        // creating object physics
+        physics = new Physics(launchValues);
+        // Reenabling the launch btn
+        btn_Launch.setDisable(false);
     }
 
     public void animation() {
@@ -221,4 +238,21 @@ public class GUIController {
     // tfMode();
     // }
     // }
+
+    // Creates another scene and makes it appear on stage
+    private void startAnimation(ActionEvent e) throws IOException {
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AnimationScene.fxml"));
+
+        Parent root = loader.load();
+
+        // Retrieve the controller after loading
+        AnimationSceneController controller = loader.getController();
+        controller.setPhysics(physics);
+
+        stage.setScene(new Scene(root));
+        stage.setTitle("Animation running");
+        stage.show();
+    }
 }

@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
    <center>
       <Pane style="-fx-background-color: green;" BorderPane.alignment="CENTER">
          <children>
@@ -30,7 +30,7 @@
          </children></Pane>
    </center>
    <bottom>
-      <TextArea fx:id="ta_Messages" disable="true" editable="false" prefHeight="57.0" prefWidth="800.0" text="stuff&#10;" wrapText="true" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="ta_Messages" disable="true" editable="false" prefHeight="57.0" prefWidth="800.0" text="&#10;&#10;" wrapText="true" BorderPane.alignment="CENTER" />
    </bottom>
    <left>
       <Pane BorderPane.alignment="CENTER">
