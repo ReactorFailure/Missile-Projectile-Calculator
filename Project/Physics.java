@@ -12,10 +12,10 @@ public class Physics {
 
     //Can't believe I had to review my projectile motion for this lol
     public Physics(ArrayList<Double> launchValues) {
-        angleOfLaunch = launchValues.indexOf(0);
-        gravAcceleration = launchValues.indexOf(1);
-        heightOfLaunch = launchValues.indexOf(2);
-        initialVelocity = launchValues.indexOf(3);
+        this.angleOfLaunch = launchValues.indexOf(0);
+        this.gravAcceleration = launchValues.indexOf(1);
+        this.heightOfLaunch = launchValues.indexOf(2);
+        this.initialVelocity = launchValues.indexOf(3);
     }
 
     //Getter and Setter for angleOfLaunch
