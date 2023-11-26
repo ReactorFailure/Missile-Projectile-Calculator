@@ -98,7 +98,7 @@ public class GUIController {
 
     //Method to switch to login scene
     public void switchToLogin(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
     }
     //Method to switch to main gui scene
