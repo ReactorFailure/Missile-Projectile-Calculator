@@ -1,2 +1,2 @@
 # Missile-Projectile-Calculator
-For Program Developement in a Graphical Environment Project
+For Program Development in a Graphical Environment Project.
