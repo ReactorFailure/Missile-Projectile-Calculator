@@ -1,0 +1,59 @@
+
+.button {
+    -fx-background-color: #999999;
+    -fx-border-radius: 5;
+    -fx-text-fill: orange;
+    -fx-border-color: black;
+}
+
+.label {
+    -fx-text-fill: orange;
+}
+
+.text-field {
+    -fx-control-inner-background: #003399;
+    -fx-text-fill: orange;
+}
+
+.text-area {
+    -fx-control-inner-background: white;
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold
+}
+
+.slider {
+    -fx-control-inner-background: #990000;
+}
+
+
+#updateButton {
+    -fx-background-color: greenyellow;
+    -fx-border-radius: 5;
+    -fx-text-fill: orange;
+    -fx-border-color: blueviolet;
+}
+
+#launchButton {
+    -fx-background-color: cornflowerblue;
+    -fx-border-radius: 5;
+    -fx-text-fill: orange;
+    -fx-border-color: blueviolet;
+}
+
+#clearButton {
+    -fx-background-color: crimson;
+    -fx-border-radius: 5;
+    -fx-text-fill: orange;
+    -fx-border-color: blueviolet;
+}
+
+#optionsPane {
+    -fx-background-color: #000033;
+}
+
+#sliderOptionsPane {
+    -fx-background-color: #330000;
+}
+
+

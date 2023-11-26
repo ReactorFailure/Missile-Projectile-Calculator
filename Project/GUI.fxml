@@ -15,18 +15,18 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
    <center>
       <Pane style="-fx-background-color: green;" BorderPane.alignment="CENTER">
          <children>
-            <Line endX="354.6000061035156" layoutX="139.0" layoutY="287.0" startX="-100.0" style="-fx-stroke-width: 5;" />
-            <Line endX="-128.5" endY="-226.60000610351562" layoutX="165.0" layoutY="252.0" startX="-128.5" startY="32.5" style="-fx-stroke-width: 5;" />
-            <ImageView fx:id="rocket_Iv" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+            <Line endX="500.0" layoutY="370.0" startX="40.0" style="-fx-stroke-width: 5;" fx:id="x_Axis" />
+            <Line fx:id="y_Axis" endX="-128.5" endY="-300.0" layoutX="165.0" layoutY="370.0" startX="-127.4999771118164" style="-fx-stroke-width: 5;" />
+            <QuadCurve fx:id="path" controlX="-28.999969482421875" controlY="-125.99998474121094" endX="212.10000610351562" endY="168.0" fill="#1f93ff00" layoutX="285.0" layoutY="205.0" startX="-247.99996948242188" startY="169.0355224609375" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+            <ImageView fx:id="rocket_Iv" fitHeight="150.0" fitWidth="200.0" layoutX="41.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/amir.png" />
                </image>
             </ImageView>
-            <QuadCurve controlX="-13.800018310546875" controlY="-130.0" endX="211.10000610351562" endY="79.5" fill="#1f93ff00" layoutX="285.0" layoutY="205.0" startX="-246.0" startY="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
          </children></Pane>
    </center>
    <bottom>
@@ -35,7 +35,7 @@
    <left>
       <Pane BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="pane_TfMode" visible="false">
+            <Pane id="optionsPane" fx:id="pane_TfMode" visible="false">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
@@ -88,7 +88,7 @@
                   </VBox>
                </children>
             </Pane>
-            <Pane fx:id="pane_SliderMode" visible="false">
+            <Pane id="sliderOptionsPane" fx:id="pane_SliderMode" visible="false">
                <children>
                   <VBox alignment="CENTER" spacing="20.0">
                      <children>
@@ -110,6 +110,9 @@
                               <Label prefWidth="115.0" text="Initial velocity:" />
                               <Slider fx:id="slider_InitialVelocity" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                            </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
                         </HBox>
                         <HBox>
                            <children>
@@ -131,9 +134,9 @@
             </Pane>
             <HBox alignment="BOTTOM_CENTER" layoutX="17.0" layoutY="369.0" spacing="40.0">
                <children>
-                  <Button fx:id="btn_Update" mnemonicParsing="false" onAction="#updateOnAction" text="Update" />
-                  <Button fx:id="btn_Launch" mnemonicParsing="false" onAction="#launchOnAction" text="Launch" />
-                  <Button fx:id="btn_Clear" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
+                  <Button id="updateButton" fx:id="btn_Update" mnemonicParsing="false" onAction="#updateOnAction" text="Update" />
+                  <Button id="launchButton" fx:id="btn_Launch" mnemonicParsing="false" onAction="#launchOnAction" text="Launch" />
+                  <Button id="clearButton" fx:id="btn_Clear" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
                </children>
             </HBox>
          </children>
