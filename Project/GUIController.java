@@ -227,11 +227,15 @@ public class GUIController {
         // Retrieve the controller after loading
         AnimationSceneController controller = loader.getController();
         controller.setPhysics(physics);
-        controller.animation();
+        controller.animation(e);
 
         stage.setScene(new Scene(root));
         stage.setTitle("Animation running");
         stage.setResizable(false);
         stage.show();
+    }
+
+    public void onReturn(Physics phy, ActionEvent e) {
+        
     }
 }
