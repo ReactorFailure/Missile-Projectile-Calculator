@@ -1,15 +1,22 @@
 package Project;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class GUIController {
     // An array list of textfield and slider
@@ -70,6 +77,21 @@ public class GUIController {
     @FXML
     private TextField tf_InitialVelocity;
 
+
+    //For switching scenes
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    //Method to switch to login scene
+    public void switchToLogin(ActionEvent e) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+    }
+    //Method to switch to main gui scene
+    public void switchToGUI(ActionEvent e) {
+
+    }
     @FXML
     // Clear every value given by user
     void clearOnAction(ActionEvent event) {
