@@ -19,7 +19,6 @@ public class run extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("GUI.fxml"));
 
         Scene scene = new Scene(root);
-        // scene.getStylesheets().add("Project\\Style.css");
 
         primaryStage.setTitle("Missile Launch Program");
         primaryStage.setScene(scene);
