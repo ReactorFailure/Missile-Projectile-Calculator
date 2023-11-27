@@ -53,7 +53,7 @@ public class Physics {
         double a = getGravAcceleration();
         double vi = getInitialVelocity();
 
-        return ((-(vi * Math.sin(angle)) - (vi * Math.sin(angle))) / a);
+        return ((-(vi * Math.sin(angle)) - (vi * Math.sin(angle))) / -a);
         // v_fy = v_iy + a*t Simplified to isolate t
     }
 
@@ -64,7 +64,7 @@ public class Physics {
         double vi = getInitialVelocity();
         double yi = getHeightOfLaunch();
 
-        return ((((vi * Math.sin(angle)) * (vi * Math.sin(angle))) / 2 * a) + yi);
+        return ((((vi * Math.sin(angle)) * (vi * Math.sin(angle))) / 2 * -a) + yi);
         // (v_fy)^2 = (v_iy)^2 - 2*a*(y_f - y_i) Simplified to isolate y_f. v_fy is zero
         // since we are calculating max height
     }
