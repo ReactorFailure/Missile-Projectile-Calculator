@@ -66,6 +66,18 @@ public class GUIController {
 
     @FXML
     private Slider slider_InitialVelocity;
+    
+    @FXML
+    private TextField sliderTf_AngleOfLaunch;
+
+    @FXML
+    private TextField sliderTf_GravitationalAcceleration;
+
+    @FXML
+    private TextField sliderTf_HeightOfLaunch;
+
+    @FXML
+    private TextField sliderTf_InitialVelocity;
 
     @FXML
     private TextArea ta_Messages;
@@ -146,6 +158,16 @@ public class GUIController {
 
     @FXML
     void initialize() {
+        //adjusts textfields to show slider value
+        sliderTf_AngleOfLaunch.textProperty().bind(
+                slider_AngleOfLaunch.valueProperty().asString("%.0f"));
+        sliderTf_HeightOfLaunch.textProperty().bind(
+                slider_HeightOfLaunch.valueProperty().asString("%.0f"));
+        sliderTf_InitialVelocity.textProperty().bind(
+                slider_InitialVelocity.valueProperty().asString("%.0f"));
+        sliderTf_GravitationalAcceleration.textProperty().bind(
+                slider_GravitationalAcceleration.valueProperty().asString("%.0f"));
+        
         // Arraylist of slider
         array_Sliders.add(slider_AngleOfLaunch);
         array_Sliders.add(slider_GravitationalAcceleration);
