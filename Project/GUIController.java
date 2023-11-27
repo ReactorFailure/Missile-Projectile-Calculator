@@ -2,7 +2,6 @@ package Project;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -228,7 +227,7 @@ public class GUIController {
         // Retrieve the controller after loading
         AnimationSceneController controller = loader.getController();
         controller.setPhysics(physics);
-        controller.animation(e);
+        controller.animation();
 
         stage.setScene(new Scene(root));
         stage.setTitle("Animation running");
@@ -236,7 +235,7 @@ public class GUIController {
         stage.show();
     }
 
-    public void onReturn(Physics phy, ActionEvent e) {
-        
+    public void onReturn(Physics phy) {
+        System.out.println("Hello");
     }
 }
