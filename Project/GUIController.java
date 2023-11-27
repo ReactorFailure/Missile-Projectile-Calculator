@@ -21,9 +21,11 @@ import javafx.scene.shape.QuadCurve;
 import javafx.stage.Stage;
 
 public class GUIController {
+
     // An array list of textfield and slider
     ArrayList<TextField> array_TextFields = new ArrayList<>();
     ArrayList<Slider> array_Sliders = new ArrayList<>();
+    ArrayList<Double> launchValues = new ArrayList<>();
 
     // Global physics class
     Physics physics;
@@ -66,7 +68,7 @@ public class GUIController {
 
     @FXML
     private Slider slider_InitialVelocity;
-    
+
     @FXML
     private TextField sliderTf_AngleOfLaunch;
 
@@ -103,6 +105,8 @@ public class GUIController {
     @FXML
     // Clear every value given by user
     void clearOnAction(ActionEvent event) {
+        launchValues.clear();
+
         for (TextField tf : array_TextFields) {
             tf.setText("");
         }
@@ -110,13 +114,14 @@ public class GUIController {
         for (Slider slider : array_Sliders) {
             slider.setValue(0);
         }
+        btn_Launch.setDisable(true);
     }
 
     @FXML
     // Starts the animation
     void launchOnAction(ActionEvent event) throws IOException {
         startAnimation(event);
-        
+
         // Disable launch btn
         btn_Launch.setDisable(true);
     }
@@ -127,10 +132,13 @@ public class GUIController {
         pane_TfMode.setVisible(false);
         pane_SliderMode.setVisible(true);
 
-        // Clear the textfield
-        for (TextField tf : array_TextFields) {
-            tf.setText("");
+        // Resets textfields to latest updated value
+        if (!launchValues.isEmpty()) {
+            for (int i = 0; i < array_Sliders.size(); i++) {
+                array_Sliders.get(i).setValue(launchValues.get(i));
+            }
         }
+
     }
 
     @FXML
@@ -139,15 +147,19 @@ public class GUIController {
         pane_TfMode.setVisible(true);
         pane_SliderMode.setVisible(false);
 
-        // Clear the slider
-        for (Slider slider : array_Sliders) {
-            slider.setValue(0);
+        // Resets textfields to latest updated value
+        if (!launchValues.isEmpty()) {
+            for (int i = 0; i < array_TextFields.size(); i++) {
+                array_TextFields.get(i).setText(launchValues.get(i).toString());
+            }
         }
     }
 
     @FXML
 
     void updateOnAction(ActionEvent event) {
+        //reset launch values
+        launchValues.clear();
         // Check if its in textfield mode
         if (pane_TfMode.isVisible()) {
             tfMode();
@@ -167,7 +179,7 @@ public class GUIController {
                 slider_InitialVelocity.valueProperty().asString("%.0f"));
         sliderTf_GravitationalAcceleration.textProperty().bind(
                 slider_GravitationalAcceleration.valueProperty().asString("%.0f"));
-        
+
         // Arraylist of slider
         array_Sliders.add(slider_AngleOfLaunch);
         array_Sliders.add(slider_GravitationalAcceleration);
@@ -209,6 +221,7 @@ public class GUIController {
         for (TextField tf : array_TextFields) {
             if (!isNumber(tf.getText())) {
                 ta_Messages.setText("Please only input numbers in the textfield");
+                btn_Launch.setDisable(true);
                 return;
             }
         }
@@ -216,7 +229,6 @@ public class GUIController {
         ta_Messages.setText("");
 
         // To pass the values into the physics class
-        ArrayList<Double> launchValues = new ArrayList<>();
         for (TextField tf : array_TextFields) {
             launchValues.add(Double.parseDouble(tf.getText()));
         }
@@ -229,7 +241,6 @@ public class GUIController {
     }
 
     private void sliderMode() {
-        ArrayList<Double> launchValues = new ArrayList<>();
         for (Slider slider : array_Sliders) {
             launchValues.add(slider.getValue());
         }
@@ -259,6 +270,6 @@ public class GUIController {
     }
 
     public void onReturn(Physics phy, ActionEvent e) {
-        
+
     }
 }
