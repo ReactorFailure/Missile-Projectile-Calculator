@@ -46,7 +46,7 @@ public class SoundEffects {
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
-        player.setVolume(0.075);
+        player.setVolume(0.0666);
         player.setRate(1.11);
         player.setCycleCount(MediaPlayer.INDEFINITE);
         player.play();

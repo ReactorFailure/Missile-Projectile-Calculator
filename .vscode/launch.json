@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "run",
+            "request": "launch",
+            "mainClass": "Project.run",
+            "projectName": "Missile-Projectile-Calculator_663aaa04",
+            "vmArgs": "--module-path \"C:/Users/zeze3/OneDrive/Documents/Coding/JavaFx18/javafx-sdk-18/lib\" --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}

@@ -1,18 +1,18 @@
 
 .button {
-    -fx-background-color: #999999;
+    -fx-background-color: gray;
     -fx-border-radius: 5;
-    -fx-text-fill: orange;
+    -fx-text-fill: black;
     -fx-border-color: black;
 }
 
 .label {
-    -fx-text-fill: orange;
+    -fx-text-fill: black;
 }
 
 .text-field {
-    -fx-control-inner-background: #003399;
-    -fx-text-fill: orange;
+    -fx-control-inner-background: lightblue;
+    -fx-text-fill: black;
 }
 
 .text-area {
@@ -23,37 +23,40 @@
 }
 
 .slider {
-    -fx-control-inner-background: #990000;
+    -fx-control-inner-background: lightcoral;
 }
 
 
 #updateButton {
     -fx-background-color: greenyellow;
     -fx-border-radius: 5;
-    -fx-text-fill: orange;
+    -fx-text-fill: black;
     -fx-border-color: blueviolet;
+    -fx-font-weight: bold
 }
 
 #launchButton {
     -fx-background-color: cornflowerblue;
     -fx-border-radius: 5;
-    -fx-text-fill: orange;
+    -fx-text-fill: black;
     -fx-border-color: blueviolet;
+    -fx-font-weight: bold
 }
 
 #clearButton {
     -fx-background-color: crimson;
     -fx-border-radius: 5;
-    -fx-text-fill: orange;
+    -fx-text-fill: black;
     -fx-border-color: blueviolet;
+    -fx-font-weight: bold
 }
 
 #optionsPane {
-    -fx-background-color: #000033;
+    -fx-background-color: lightgrey;
 }
 
 #sliderOptionsPane {
-    -fx-background-color: #330000;
+    -fx-background-color: lightgrey;
 }
 
 
