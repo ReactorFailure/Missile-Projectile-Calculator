@@ -290,6 +290,8 @@ public class GUIController {
 
         path.setControlX(((path.getEndX() - path.getStartX()) / 2) + path.getStartX());
         path.setControlY(physics.calcMaxHeight() / 2);
+
+        x_Axis.setEndX(path.getEndX());
     }
 
     public void onReturn(Physics phy) {

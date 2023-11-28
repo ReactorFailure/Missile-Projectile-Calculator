@@ -39,7 +39,9 @@ public class AnimationSceneController {
         path.setControlX(((path.getEndX() - path.getStartX()) / 2) + path.getStartX());
         path.setControlY(physics.calcMaxHeight() / 2);
 
-        PathTransition transition = new PathTransition(Duration.seconds(1), path);
+        x_Axis.setEndX(path.getEndX());
+
+        PathTransition transition = new PathTransition(Duration.seconds(physics.calcTime()), path);
         transition.setNode(rocket_Iv);
         transition.setCycleCount(1);
         transition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
