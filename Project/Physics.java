@@ -12,68 +12,55 @@ public class Physics {
         this.initialVelocity = launchValues.get(3);
     }
 
-    // Getter and Setter for angleOfLaunch
-    public double getAngleOfLaunch() {
-        return angleOfLaunch;
-    }
-
-    public void setAngleOfLaunch(double angleOfLaunch) {
-        this.angleOfLaunch = angleOfLaunch;
-    }
-
-    // Getter and Setter for gravAcceleration
-    public double getGravAcceleration() {
-        return gravAcceleration;
-    }
-
-    public void setGravAcceleration(double gravAcceleration) {
-        this.gravAcceleration = gravAcceleration;
-    }
-
-    public double getHeightOfLaunch() {
-        return heightOfLaunch;
-    }
-
-    public void setHeightOfLaunch(double heightOfLaunch) {
-        this.heightOfLaunch = heightOfLaunch;
-    }
-
-    public double getInitialVelocity() {
-        return initialVelocity;
-    }
-
-    public void setInitialVelocity(double initialVelocity) {
-        this.initialVelocity = initialVelocity;
-    }
-
     // Calculate time until the missile hits target
     public double calcTime() {
         // Turning getters to physics variables
-        double angle = getAngleOfLaunch();
-        double a = getGravAcceleration();
-        double vi = getInitialVelocity();
-        double h1 = getHeightOfLaunch();
 
-        return (((vi*Math.sin(angle))+Math.sqrt(Math.pow(vi,2)*Math.pow(Math.sin(angle),2)+2*a*h1))/a);
+        double angle = this.angleOfLaunch;
+        double a = this.gravAcceleration;
+        double vi = this.initialVelocity;
+        double yi = this.heightOfLaunch;
+        
+        double radians = Math.PI*angle/180;
+        double viY = vi*Math.sin(radians);
+        
+        double time = (viY+(Math.sqrt(viY*viY+2*a*yi)))/a;
+
+        return time;
     }
 
     // Calculate max height missile will reach
     public double calcMaxHeight() {
-        double angle = getAngleOfLaunch();
-        double a = getGravAcceleration();
-        double vi = getInitialVelocity();
-        double yi = getHeightOfLaunch();
 
-        return (((Math.pow(vi,2)*Math.pow(Math.sin(angle),2))/(2*a))+yi);
+        double angle = this.angleOfLaunch;
+        double a = this.gravAcceleration;
+        double vi = this.initialVelocity;
+        double yi = this.heightOfLaunch;
+        
+        double radians = Math.PI*angle/180;
+        double viY = vi*Math.sin(radians);
+        
+        double maxHeight = yi+(viY*viY)/(2*a);
+
+        return maxHeight;
     }
 
     // Calculate distance of missile at y=0
     public double calcDistance() {
-        double angle = getAngleOfLaunch();
-        double vi = getInitialVelocity();
-        double a = getGravAcceleration();
 
-        return ((Math.pow(vi,2)*Math.sin(2*angle))/a);
+        double angle = this.angleOfLaunch;
+        double a = this.gravAcceleration;
+        double vi = this.initialVelocity;
+        double yi = this.heightOfLaunch;
+        
+        double radians = Math.PI*angle/180;
+        double viY = vi*Math.sin(radians);
+        double viX = vi*Math.cos(radians);
+        
+        
+        double distance = viX*(viY+(Math.sqrt(viY*viY+2*a*yi)))/a;
+
+        return distance;
     }
 
 }
