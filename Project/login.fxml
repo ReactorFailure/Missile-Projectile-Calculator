@@ -21,8 +21,8 @@
             <Font name="Monospaced Regular" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="tf_username" layoutX="244.0" layoutY="188.0" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: grey; -fx-border-color: green; -fx-border-width: 2px;" />
-      <PasswordField fx:id="pf_password" layoutX="244.0" layoutY="230.0" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: grey; -fx-border-color: green; -fx-border-width: 2px;" />
+      <TextField fx:id="tf_username" layoutX="244.0" layoutY="188.0" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: grey; -fx-border-color: green; -fx-border-width: 2px; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-family: Monospaced;" />
+      <PasswordField fx:id="pf_password" layoutX="244.0" layoutY="230.0" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: grey; -fx-border-color: green; -fx-border-width: 2px; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-family: Monospaced;" />
       <Label layoutX="99.0" layoutY="191.0" text="Agent username:" textFill="#008cff">
          <font>
             <Font name="Monospaced Bold" size="15.0" />
