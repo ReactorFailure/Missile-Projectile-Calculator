@@ -50,33 +50,30 @@ public class Physics {
     public double calcTime() {
         // Turning getters to physics variables
         double angle = getAngleOfLaunch();
-        double a = getGravAcceleration(); //Should be negative because gravity
+        double a = getGravAcceleration();
         double vi = getInitialVelocity();
+        double h1 = getHeightOfLaunch();
 
-        return ((-(vi * Math.sin(angle)) - (vi * Math.sin(angle))) / -a);
-        // v_fy = v_iy + a*t Simplified to isolate t
+        return (((vi*Math.sin(angle))+Math.sqrt(Math.pow(vi,2)*Math.pow(Math.sin(angle),2)+2*a*h1))/a);
     }
 
     // Calculate max height missile will reach
     public double calcMaxHeight() {
         double angle = getAngleOfLaunch();
-        double a = getGravAcceleration(); //Should be negative because gravity
+        double a = getGravAcceleration();
         double vi = getInitialVelocity();
         double yi = getHeightOfLaunch();
 
-        return ((((vi * Math.sin(angle)) * (vi * Math.sin(angle))) / 2 * -a) + yi);
-        // (v_fy)^2 = (v_iy)^2 - 2*a*(y_f - y_i) Simplified to isolate y_f. v_fy is zero
-        // since we are calculating max height
+        return (((Math.pow(vi,2)*Math.pow(Math.sin(angle),2))/(2*a))+yi);
     }
 
     // Calculate distance of missile at y=0
     public double calcDistance() {
         double angle = getAngleOfLaunch();
         double vi = getInitialVelocity();
+        double a = getGravAcceleration();
 
-        return (vi * Math.cos(angle)) * calcTime();
-        // x_f = x_i + v_x*t x_i is zero because that's the starting point and because
-        // of reference frames and what not
+        return ((Math.pow(vi,2)*Math.sin(2*angle))/a);
     }
 
 }
