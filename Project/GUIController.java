@@ -137,6 +137,7 @@ public class GUIController {
                 array_Sliders.get(i).setValue(launchValues.get(i));
             }
         }
+
     }
 
     @FXML
@@ -161,10 +162,8 @@ public class GUIController {
         // Check if its in textfield mode
         if (pane_TfMode.isVisible()) {
             tfMode();
-            changePane();
         } else {
             sliderMode();
-            changePane();
         }
     }
 
@@ -284,17 +283,8 @@ public class GUIController {
         stage.show();
     }
 
-    public void changePane() {
-        path.setStartY(path.getEndY() - physics.heightOfLaunch);
-        path.setEndX(physics.calcDistance() + path.getStartX());
-
-        path.setControlX(((path.getEndX() - path.getStartX()) / 2) + path.getStartX());
-        path.setControlY(physics.calcMaxHeight() / 2);
-
-        x_Axis.setEndX(path.getEndX());
-    }
-
     public void onReturn(Physics phy) {
+        System.out.println("Hello");
 
     }
 }

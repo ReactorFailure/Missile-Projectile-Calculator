@@ -14,30 +14,30 @@ import javafx.scene.media.MediaPlayer;
  */
 public class SoundEffects {
 
-    public static void missile1() {
-        String file = "src\\Project\\sound\\missile1.wav";
+    public static void rocketlaunch() {
+        String file = "src\\Project\\sound\\rocketlaunch.mp3";
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
-        player.setVolume(0.2);
+        player.setVolume(0.777);
         player.play();
     }
 
-    public static void missile2() {
-        String file = "src\\Project\\sound\\missile2.wav";
+    public static void oof() {
+        String file = "src\\Project\\sound\\oof.mp3";
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
-        player.setVolume(0.2);
+        player.setVolume(0.777);
         player.play();
     }
 
     public static void explosion() {
-        String file = "src\\Project\\sound\\explosion.wav";
+        String file = "src\\Project\\sound\\explosion2.mp3";
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
-        player.setVolume(0.2);
+        player.setVolume(0.777);
         player.play();
     }
     
