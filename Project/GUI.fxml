@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
    <center>
@@ -136,11 +137,16 @@
                   </VBox>
                </children>
             </Pane>
-            <HBox alignment="BOTTOM_CENTER" layoutX="17.0" layoutY="369.0" spacing="40.0">
+            <HBox alignment="BOTTOM_CENTER" layoutX="17.0" layoutY="369.0" spacing="18.0">
                <children>
                   <Button id="updateButton" fx:id="btn_Update" mnemonicParsing="false" onAction="#updateOnAction" text="Update" />
                   <Button id="launchButton" fx:id="btn_Launch" mnemonicParsing="false" onAction="#launchOnAction" text="Launch" />
                   <Button id="clearButton" fx:id="btn_Clear" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
+                  <Button fx:id="btn_Exit" mnemonicParsing="false" onAction="#exitOnAction" style="-fx-background-color: orange;" text="Exit">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </HBox>
          </children>
