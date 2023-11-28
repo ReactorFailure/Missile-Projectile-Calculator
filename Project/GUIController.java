@@ -248,6 +248,7 @@ public class GUIController {
                 || Double.parseDouble(tf_GravitationalAcceleration.getText()) < 1 || Double.parseDouble(tf_GravitationalAcceleration.getText()) > 15) {
             ta_Messages.setText("Please set text fields to allowed values\nAngle:1-89, Height:1-100, Velocity:1-100, Gravitational Acceleration:1-15");
             btn_Launch.setDisable(true);
+            SoundEffects.oof();
             return;
         }
         // Clear the messages if everything is fine
@@ -273,6 +274,7 @@ public class GUIController {
         for (Slider sliders : array_Sliders) {
             if (sliders.getValue() == 0) {
                 ta_Messages.setText("The numbers on the sliders can't be zero");
+                SoundEffects.oof();
                 return;
             }
         }

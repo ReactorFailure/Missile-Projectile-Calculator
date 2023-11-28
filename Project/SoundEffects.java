@@ -19,7 +19,7 @@ public class SoundEffects {
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
-        player.setVolume(0.777);
+        player.setVolume(0.666);
         player.play();
     }
 
@@ -28,7 +28,7 @@ public class SoundEffects {
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
-        player.setVolume(0.777);
+        player.setVolume(0.666);
         player.play();
     }
 
@@ -37,17 +37,16 @@ public class SoundEffects {
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
-        player.setVolume(0.777);
+        player.setVolume(0.666);
         player.play();
     }
     
-    public static void music() {
-        String file = "src\\Project\\sound\\miiPlaza.mp3";
+    public static void cbat() {
+        String file = "src\\Project\\sound\\cbat.mp3";
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
-        player.setVolume(0.0666);
-        player.setRate(1.11);
+        player.setVolume(0.666);
         player.setCycleCount(MediaPlayer.INDEFINITE);
         player.play();
     }
