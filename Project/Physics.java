@@ -42,7 +42,7 @@ public class Physics {
         double radians = Math.PI*angle/180;
         double viY = vi*Math.sin(radians);
         
-        double maxHeight = yi+(viY*viY)/(2*a);
+        double maxHeight = (yi+(viY*viY))/(2*a);
 
         return maxHeight;
     }
@@ -59,7 +59,7 @@ public class Physics {
         double viY = vi*Math.sin(radians);
         double viX = vi*Math.cos(radians);
         
-        double distance = viX*(viY+(Math.sqrt(viY*viY+2*a*yi)))/a;
+        double distance = (viX*(viY+(Math.sqrt(viY*viY+2*a*yi))))/a;
 
         return distance;
     }

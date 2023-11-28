@@ -181,7 +181,7 @@ public class GUIController {
                 slider_GravitationalAcceleration.valueProperty().asString("%.0f"));
 
         // Setting the max values for sliders
-        slider_AngleOfLaunch.setMax(90);
+        slider_AngleOfLaunch.setMax(89);
         slider_GravitationalAcceleration.setMax(15);
         slider_GravitationalAcceleration.setMajorTickUnit(5);
 
@@ -232,10 +232,10 @@ public class GUIController {
         }
         //verify the constraints for the textfields
         if (Integer.parseInt(tf_AngleOfLaunch.getText()) < 1 || Integer.parseInt(tf_AngleOfLaunch.getText()) > 89
-                || Integer.parseInt(tf_HeightOfLaunch.getText()) < 1 || Integer.parseInt(tf_HeightOfLaunch.getText()) > 100
-                || Integer.parseInt(tf_InitialVelocity.getText()) < 1 || Integer.parseInt(tf_InitialVelocity.getText()) > 100
-                || Integer.parseInt(tf_GravitationalAcceleration.getText()) < 1 || Integer.parseInt(tf_GravitationalAcceleration.getText()) > 15) {
-            ta_Messages.setText("Please set textfields to allowed values\nAngle:1-89, Height:1-100, Velocity:1-100, Gravitational Acceleration:1-15");
+                || Double.parseDouble(tf_HeightOfLaunch.getText()) < 1 || Double.parseDouble(tf_HeightOfLaunch.getText()) > 100
+                || Double.parseDouble(tf_InitialVelocity.getText()) < 1 || Double.parseDouble(tf_InitialVelocity.getText()) > 100
+                || Double.parseDouble(tf_GravitationalAcceleration.getText()) < 1 || Double.parseDouble(tf_GravitationalAcceleration.getText()) > 15) {
+            ta_Messages.setText("Please set text fields to allowed values\nAngle:1-89, Height:1-100, Velocity:1-100, Gravitational Acceleration:1-15");
             btn_Launch.setDisable(true);
             return;
         }
