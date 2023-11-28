@@ -179,6 +179,11 @@ public class GUIController {
         sliderTf_GravitationalAcceleration.textProperty().bind(
                 slider_GravitationalAcceleration.valueProperty().asString("%.0f"));
 
+        // Setting the max values for sliders
+        slider_AngleOfLaunch.setMax(90);
+        slider_GravitationalAcceleration.setMax(15);
+        slider_GravitationalAcceleration.setMajorTickUnit(5);
+
         // Arraylist of slider
         array_Sliders.add(slider_AngleOfLaunch);
         array_Sliders.add(slider_GravitationalAcceleration);
@@ -240,6 +245,17 @@ public class GUIController {
     }
 
     private void sliderMode() {
+        // Verify that the textfield has only number
+        for (Slider sliders : array_Sliders) {
+            if (sliders.getValue() == 0) {
+                ta_Messages.setText("The numbers on the sliders can't be zero");
+                return;
+            }
+        }
+        // Clear the messages if everything is fine
+        ta_Messages.setText("");
+
+        ArrayList<Double> launchValues = new ArrayList<>();
         for (Slider slider : array_Sliders) {
             launchValues.add(slider.getValue());
         }
@@ -264,7 +280,6 @@ public class GUIController {
 
         stage.setScene(new Scene(root));
         stage.setTitle("Animation running");
-        stage.setResizable(false);
         stage.show();
     }
 

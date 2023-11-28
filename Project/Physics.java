@@ -15,6 +15,7 @@ public class Physics {
     // Calculate time until the missile hits target
     public double calcTime() {
         // Turning getters to physics variables
+
         double angle = this.angleOfLaunch;
         double a = this.gravAcceleration;
         double vi = this.initialVelocity;
@@ -30,6 +31,7 @@ public class Physics {
 
     // Calculate max height missile will reach
     public double calcMaxHeight() {
+
         double angle = this.angleOfLaunch;
         double a = this.gravAcceleration;
         double vi = this.initialVelocity;
@@ -45,6 +47,7 @@ public class Physics {
 
     // Calculate distance of missile at y=0
     public double calcDistance() {
+
         double angle = this.angleOfLaunch;
         double a = this.gravAcceleration;
         double vi = this.initialVelocity;
