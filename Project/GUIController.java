@@ -166,6 +166,7 @@ public class GUIController {
         } else {
             sliderMode();
         }
+        
     }
 
     @FXML
@@ -250,6 +251,9 @@ public class GUIController {
         // creating object physics
         physics = new Physics(launchValues);
 
+        // Changes the pane that displays the path
+        changePane();
+
         // Reenabling the launch btn
         btn_Launch.setDisable(false);
     }
@@ -271,6 +275,10 @@ public class GUIController {
 
         // creating object physics
         physics = new Physics(launchValues);
+
+        // Changes the pane that displays the path
+        changePane();
+
         // Reenabling the launch btn
         btn_Launch.setDisable(false);
     }
@@ -292,15 +300,25 @@ public class GUIController {
         stage.show();
     }
 
+    public void changePane() {
+        path.setEndX(physics.calcDistance() + path.getStartX());
+
+        path.setControlX(((path.getEndX() - path.getStartX()) / 2));
+        path.setControlY(physics.calcMaxHeight() / 2);
+
+        x_Axis.setEndX(path.getEndX());
+    }
+
     public void onReturn(Physics phy) {
         //to display the previous used launch values
         this.launchValues = phy.launchValues;
         for (int i = 0; i < array_TextFields.size(); i++) {
             array_TextFields.get(i).setText(String.format("%.0f", launchValues.get(i)));
         }
-        
-        System.out.println("Time" + phy.calcTime());
-        System.out.println("Distance" + phy.calcDistance());
-        System.out.println("Max Height" + phy.calcMaxHeight());
+
+        String str = String.format("The rocket traveled a distance of %.2f meters in %.2f seconds\n", phy.calcDistance(), phy.calcTime());
+        str += String.format("The max height reached was %.2f meters", phy.calcMaxHeight());
+
+        ta_Messages.setText(str);
     }
 }
