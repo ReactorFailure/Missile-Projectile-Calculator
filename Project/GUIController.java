@@ -301,9 +301,10 @@ public class GUIController {
     }
 
     public void changePane() {
-        path.setEndX(physics.calcDistance() + path.getStartX());
+        path.setStartY(y_Axis.getEndY() - physics.heightOfLaunch);
+        path.setEndX(physics.calcDistance() + x_Axis.getStartX());
 
-        path.setControlX(((path.getEndX() - path.getStartX()) / 2));
+        path.setControlX(((path.getEndX() + path.getStartX()) / 2));
         path.setControlY(physics.calcMaxHeight() / 2);
 
         x_Axis.setEndX(path.getEndX());
