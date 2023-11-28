@@ -36,8 +36,9 @@ public class AnimationSceneController {
 
     public void animation() {
         path.setEndX(physics.calcDistance() + path.getStartX());
+
         path.setControlX(((path.getEndX() - path.getStartX()) / 2));
-        path.setControlY(physics.calcMaxHeight() * 2);
+        path.setControlY(physics.calcMaxHeight() / 2);
 
         System.out.println(physics.calcDistance());
         System.out.println(path.getStartX());
