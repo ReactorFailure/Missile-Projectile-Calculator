@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
    <center>
       <Pane style="-fx-background-color: green;" BorderPane.alignment="CENTER">
          <children>
@@ -33,7 +33,7 @@
       <TextArea fx:id="ta_Messages" disable="true" editable="false" prefHeight="57.0" prefWidth="800.0" text="&#10;&#10;" wrapText="true" BorderPane.alignment="CENTER" />
    </bottom>
    <left>
-      <Pane BorderPane.alignment="CENTER">
+      <Pane style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
          <children>
             <Pane id="optionsPane" fx:id="pane_TfMode" visible="false">
                <children>
@@ -95,20 +95,23 @@
                         <Label alignment="TOP_CENTER" text="Please slide the value to launch the missile:" wrapText="true" />
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Angle of launch:" />
+                              <Label prefWidth="95.0" text="Angle of launch:" />
                               <Slider fx:id="slider_AngleOfLaunch" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
+                              <TextField fx:id="sliderTf_AngleOfLaunch" prefHeight="25.0" prefWidth="35.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Height of launch:" />
+                              <Label prefWidth="95.0" text="Height of launch:" />
                               <Slider fx:id="slider_HeightOfLaunch" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
+                              <TextField fx:id="sliderTf_HeightOfLaunch" prefHeight="25.0" prefWidth="35.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Initial velocity:" />
+                              <Label prefWidth="95.0" text="Initial velocity:" />
                               <Slider fx:id="slider_InitialVelocity" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
+                              <TextField fx:id="sliderTf_InitialVelocity" prefHeight="25.0" prefWidth="35.0" />
                            </children>
                            <opaqueInsets>
                               <Insets />
@@ -116,8 +119,9 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Gravitational Acceleration:" wrapText="true" />
+                              <Label prefWidth="95.0" text="Gravitational Acceleration:" wrapText="true" />
                               <Slider fx:id="slider_GravitationalAcceleration" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
+                              <TextField fx:id="sliderTf_GravitationalAcceleration" prefHeight="25.0" prefWidth="35.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER">
@@ -140,6 +144,9 @@
                </children>
             </HBox>
          </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </Pane>
    </left>
 </BorderPane>
