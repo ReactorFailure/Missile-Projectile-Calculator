@@ -41,6 +41,8 @@ public class AnimationSceneController {
 
         x_Axis.setEndX(path.getEndX());
 
+        System.out.println(path.getEndX() + " " + path.getEndY());
+
         PathTransition transition = new PathTransition(Duration.seconds(physics.calcTime()), path);
         transition.setNode(rocket_Iv);
         transition.setCycleCount(1);
