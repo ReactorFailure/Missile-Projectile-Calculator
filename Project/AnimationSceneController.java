@@ -3,10 +3,8 @@ package Project;
 import java.io.IOException;
 
 import javafx.animation.PathTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
@@ -35,15 +33,11 @@ public class AnimationSceneController {
     }
 
     public void animation() {
+        path.setStartY(path.getEndY() - physics.heightOfLaunch);
         path.setEndX(physics.calcDistance() + path.getStartX());
 
-        path.setControlX(((path.getEndX() - path.getStartX()) / 2));
+        path.setControlX(((path.getEndX() - path.getStartX()) / 2) + path.getStartX());
         path.setControlY(physics.calcMaxHeight() / 2);
-
-        System.out.println(physics.calcDistance());
-        System.out.println(path.getStartX());
-        System.out.println(path.getEndX());
-        System.out.println(path.getEndX() - path.getStartX());
 
         PathTransition transition = new PathTransition(Duration.seconds(1), path);
         transition.setNode(rocket_Iv);

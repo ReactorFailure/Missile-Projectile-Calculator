@@ -20,7 +20,6 @@ public class loginController {
     //Stuff for switching scenes
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     @FXML
     private Button btn_login;
@@ -51,7 +50,7 @@ public class loginController {
     @FXML
     public void switchToGUI(ActionEvent e) throws IOException {
 
-        // if(tf_username.getText().equals("SoupLover123") && pf_password.getText().equals("givefreerobux7")) {
+        if(tf_username.getText().equals("SoupLover123") && pf_password.getText().equals("givefreerobux7")) {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GUI.fxml")));
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -59,9 +58,9 @@ public class loginController {
             stage.setScene(scene);
             stage.show();
 
-        // } else {
-        //     lbl_error.setVisible(true);
-        // }
+        } else {
+            lbl_error.setVisible(true);
+        }
     }
 
     @FXML

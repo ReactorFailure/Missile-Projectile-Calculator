@@ -15,19 +15,22 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
    <center>
       <Pane style="-fx-background-color: green;" BorderPane.alignment="CENTER">
          <children>
-            <Line endX="500.0" layoutY="370.0" startX="40.0" style="-fx-stroke-width: 5;" fx:id="x_Axis" />
-            <Line fx:id="y_Axis" endX="-128.5" endY="-300.0" layoutX="165.0" layoutY="370.0" startX="-127.4999771118164" style="-fx-stroke-width: 5;" />
-            <QuadCurve fx:id="path" controlX="-28.999969482421875" controlY="-125.99998474121094" endX="212.10000610351562" endY="168.0" fill="#1f93ff00" layoutX="285.0" layoutY="205.0" startX="-247.99996948242188" startY="169.0355224609375" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-            <ImageView fx:id="rocket_Iv" fitHeight="150.0" fitWidth="200.0" layoutX="41.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+            <Line endX="500.0" layoutX="50.0" layoutY="400.0" style="-fx-stroke-width: 5;" fx:id="x_Axis" />
+            <Line fx:id="y_Axis" endY="350.0" layoutX="50.0" layoutY="50.0" style="-fx-stroke-width: 5;" />
+            <QuadCurve fx:id="path" controlX="300.0" controlY="50.0" endX="550.0" endY="400.0" fill="#1f93ff00" startX="50.0" startY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+            <ImageView fx:id="rocket_Iv" fitHeight="150.0" fitWidth="200.0" layoutX="2.0" layoutY="-151.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="400.0">
                <image>
                   <Image url="@img/amir.png" />
                </image>
             </ImageView>
-         </children></Pane>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding></Pane>
    </center>
    <bottom>
       <TextArea fx:id="ta_Messages" disable="true" editable="false" prefHeight="57.0" prefWidth="800.0" text="&#10;&#10;" wrapText="true" BorderPane.alignment="CENTER" />
