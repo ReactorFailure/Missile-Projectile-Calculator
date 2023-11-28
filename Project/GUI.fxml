@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
    <center>
@@ -42,7 +43,7 @@
                         <Label alignment="TOP_CENTER" text="Please enter values to launch the missile:" wrapText="true" />
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Angle of launch:" />
+                              <Label prefWidth="115.0" text="Angle of launch (degrees):" wrapText="true" />
                               <TextField fx:id="tf_AngleOfLaunch" prefHeight="25.0" prefWidth="151.0">
                                  <HBox.margin>
                                     <Insets bottom="25.0" />
@@ -51,7 +52,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Height of launch:" />
+                              <Label prefWidth="115.0" text="Height of launch (m):" />
                               <TextField fx:id="tf_HeightOfLaunch" prefHeight="25.0">
                                  <HBox.margin>
                                     <Insets bottom="25.0" />
@@ -60,7 +61,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Initial velocity:" />
+                              <Label prefWidth="115.0" text="Initial velocity (m/s):" />
                               <TextField fx:id="tf_InitialVelocity" prefHeight="25.0">
                                  <HBox.margin>
                                     <Insets bottom="25.0" />
@@ -69,7 +70,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Gravitational Acceleration:" wrapText="true" />
+                              <Label prefWidth="115.0" text="Gravitational Acceleration (m/s^2):" wrapText="true" />
                               <TextField fx:id="tf_GravitationalAcceleration" prefHeight="25.0">
                                  <HBox.margin>
                                     <Insets bottom="25.0" />
@@ -95,21 +96,21 @@
                         <Label alignment="TOP_CENTER" text="Please slide the value to launch the missile:" wrapText="true" />
                         <HBox>
                            <children>
-                              <Label prefWidth="95.0" text="Angle of launch:" />
+                              <Label prefWidth="95.0" text="Angle of launch (degrees):" />
                               <Slider fx:id="slider_AngleOfLaunch" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                               <TextField fx:id="sliderTf_AngleOfLaunch" prefHeight="25.0" prefWidth="35.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="95.0" text="Height of launch:" />
+                              <Label prefWidth="95.0" text="Height of launch (m):" />
                               <Slider fx:id="slider_HeightOfLaunch" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                               <TextField fx:id="sliderTf_HeightOfLaunch" prefHeight="25.0" prefWidth="35.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="95.0" text="Initial velocity:" />
+                              <Label prefWidth="95.0" text="Initial velocity (m/s):" />
                               <Slider fx:id="slider_InitialVelocity" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                               <TextField fx:id="sliderTf_InitialVelocity" prefHeight="25.0" prefWidth="35.0" />
                            </children>
@@ -119,7 +120,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="95.0" text="Gravitational Acceleration:" wrapText="true" />
+                              <Label prefWidth="95.0" text="Gravitational Acceleration (m/s^2):" wrapText="true" />
                               <Slider fx:id="slider_GravitationalAcceleration" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                               <TextField fx:id="sliderTf_GravitationalAcceleration" prefHeight="25.0" prefWidth="35.0" />
                            </children>
@@ -136,11 +137,16 @@
                   </VBox>
                </children>
             </Pane>
-            <HBox alignment="BOTTOM_CENTER" layoutX="17.0" layoutY="369.0" spacing="40.0">
+            <HBox alignment="BOTTOM_CENTER" layoutX="17.0" layoutY="369.0" spacing="18.0">
                <children>
                   <Button id="updateButton" fx:id="btn_Update" mnemonicParsing="false" onAction="#updateOnAction" text="Update" />
                   <Button id="launchButton" fx:id="btn_Launch" mnemonicParsing="false" onAction="#launchOnAction" text="Launch" />
                   <Button id="clearButton" fx:id="btn_Clear" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
+                  <Button fx:id="btn_Exit" mnemonicParsing="false" onAction="#exitOnAction" style="-fx-background-color: orange;" text="Exit">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </HBox>
          </children>

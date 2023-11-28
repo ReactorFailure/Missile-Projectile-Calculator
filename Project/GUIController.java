@@ -3,6 +3,7 @@ package Project;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,6 +35,9 @@ public class GUIController {
 
     @FXML
     private Button btn_Launch;
+
+    @FXML
+    private Button btn_Exit;
 
     @FXML
     private Button btn_SwitchSlider;
@@ -115,6 +119,12 @@ public class GUIController {
         }
         ta_Messages.clear();
         btn_Launch.setDisable(true);
+    }
+
+    //Exit program
+    @FXML
+    void exitOnAction(ActionEvent e) {
+        Platform.exit();
     }
 
     @FXML
