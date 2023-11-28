@@ -113,6 +113,7 @@ public class GUIController {
         for (Slider slider : array_Sliders) {
             slider.setValue(0);
         }
+        ta_Messages.clear();
         btn_Launch.setDisable(true);
     }
 
@@ -149,7 +150,7 @@ public class GUIController {
         // Resets textfields to latest updated value
         if (!launchValues.isEmpty()) {
             for (int i = 0; i < array_TextFields.size(); i++) {
-                array_TextFields.get(i).setText(launchValues.get(i).toString());
+                array_TextFields.get(i).setText(String.format("%.0f", launchValues.get(i)));
             }
         }
     }
@@ -229,6 +230,15 @@ public class GUIController {
                 return;
             }
         }
+        //verify the constraints for the textfields
+        if (Integer.parseInt(tf_AngleOfLaunch.getText()) < 1 || Integer.parseInt(tf_AngleOfLaunch.getText()) > 89
+                || Integer.parseInt(tf_HeightOfLaunch.getText()) < 1 || Integer.parseInt(tf_HeightOfLaunch.getText()) > 100
+                || Integer.parseInt(tf_InitialVelocity.getText()) < 1 || Integer.parseInt(tf_InitialVelocity.getText()) > 100
+                || Integer.parseInt(tf_GravitationalAcceleration.getText()) < 1 || Integer.parseInt(tf_GravitationalAcceleration.getText()) > 15) {
+            ta_Messages.setText("Please set textfields to allowed values\nAngle:1-89, Height:1-100, Velocity:1-100, Gravitational Acceleration:1-15");
+            btn_Launch.setDisable(true);
+            return;
+        }
         // Clear the messages if everything is fine
         ta_Messages.setText("");
 
@@ -255,7 +265,6 @@ public class GUIController {
         // Clear the messages if everything is fine
         ta_Messages.setText("");
 
-        ArrayList<Double> launchValues = new ArrayList<>();
         for (Slider slider : array_Sliders) {
             launchValues.add(slider.getValue());
         }
@@ -284,7 +293,14 @@ public class GUIController {
     }
 
     public void onReturn(Physics phy) {
-        System.out.println("Hello");
-
+        //to display the previous used launch values
+        this.launchValues = phy.launchValues;
+        for (int i = 0; i < array_TextFields.size(); i++) {
+            array_TextFields.get(i).setText(String.format("%.0f", launchValues.get(i)));
+        }
+        
+        System.out.println("Time" + phy.calcTime());
+        System.out.println("Distance" + phy.calcDistance());
+        System.out.println("Max Height" + phy.calcMaxHeight());
     }
 }
