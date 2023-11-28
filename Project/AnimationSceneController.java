@@ -1,11 +1,18 @@
 package Project;
 
+import java.io.IOException;
+
 import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class AnimationSceneController {
@@ -27,14 +34,10 @@ public class AnimationSceneController {
         this.physics = physics;
     }
 
-    public void animation(ActionEvent ae) {
-        // Path path = new Path();
-        // path.getElements().add(new MoveTo(50, 500));
-        // path.getElements().add(new QuadCurveTo(300, 150, 550, 500));
+    public void animation() {
         path.setEndX(physics.calcDistance() + path.getStartX());
         path.setControlX(((path.getEndX() - path.getStartX()) / 2));
         path.setControlY(physics.calcMaxHeight() * 2);
-
 
         System.out.println(physics.calcDistance());
         System.out.println(path.getStartX());
@@ -46,5 +49,29 @@ public class AnimationSceneController {
         transition.setCycleCount(1);
         transition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
         transition.play();
+
+        transition.setOnFinished(e -> {
+            try {
+                returnMain(transition);
+            } catch (IOException e1) {
+                System.out.println("Big probemo");
+            }
+        });
+    }
+
+    public void returnMain(PathTransition pt) throws IOException {
+        Stage stage = (Stage) pt.getNode().getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GUI.fxml"));
+        Parent root = loader.load();
+
+        // Retrieve the controller after loading
+        GUIController controller = loader.getController();
+        controller.onReturn(physics);
+
+        stage.setScene(new Scene(root));
+        stage.setTitle("Animation running");
+        stage.setResizable(false);
+        stage.show();
     }
 }
