@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.QuadCurve?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.GUIController">
    <center>
       <Pane style="-fx-background-color: green;" BorderPane.alignment="CENTER">
          <children>
@@ -42,7 +42,7 @@
                         <Label alignment="TOP_CENTER" text="Please enter values to launch the missile:" wrapText="true" />
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Angle of launch:" />
+                              <Label prefWidth="115.0" text="Angle of launch (degrees):" wrapText="true" />
                               <TextField fx:id="tf_AngleOfLaunch" prefHeight="25.0" prefWidth="151.0">
                                  <HBox.margin>
                                     <Insets bottom="25.0" />
@@ -51,7 +51,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Height of launch:" />
+                              <Label prefWidth="115.0" text="Height of launch (m):" />
                               <TextField fx:id="tf_HeightOfLaunch" prefHeight="25.0">
                                  <HBox.margin>
                                     <Insets bottom="25.0" />
@@ -60,7 +60,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Initial velocity:" />
+                              <Label prefWidth="115.0" text="Initial velocity (m/s):" />
                               <TextField fx:id="tf_InitialVelocity" prefHeight="25.0">
                                  <HBox.margin>
                                     <Insets bottom="25.0" />
@@ -69,7 +69,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="115.0" text="Gravitational Acceleration:" wrapText="true" />
+                              <Label prefWidth="115.0" text="Gravitational Acceleration (m/s^2):" wrapText="true" />
                               <TextField fx:id="tf_GravitationalAcceleration" prefHeight="25.0">
                                  <HBox.margin>
                                     <Insets bottom="25.0" />
@@ -95,21 +95,21 @@
                         <Label alignment="TOP_CENTER" text="Please slide the value to launch the missile:" wrapText="true" />
                         <HBox>
                            <children>
-                              <Label prefWidth="95.0" text="Angle of launch:" />
+                              <Label prefWidth="95.0" text="Angle of launch (degrees):" />
                               <Slider fx:id="slider_AngleOfLaunch" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                               <TextField fx:id="sliderTf_AngleOfLaunch" prefHeight="25.0" prefWidth="35.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="95.0" text="Height of launch:" />
+                              <Label prefWidth="95.0" text="Height of launch (m):" />
                               <Slider fx:id="slider_HeightOfLaunch" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                               <TextField fx:id="sliderTf_HeightOfLaunch" prefHeight="25.0" prefWidth="35.0" />
                            </children>
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="95.0" text="Initial velocity:" />
+                              <Label prefWidth="95.0" text="Initial velocity (m/s):" />
                               <Slider fx:id="slider_InitialVelocity" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                               <TextField fx:id="sliderTf_InitialVelocity" prefHeight="25.0" prefWidth="35.0" />
                            </children>
@@ -119,7 +119,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label prefWidth="95.0" text="Gravitational Acceleration:" wrapText="true" />
+                              <Label prefWidth="95.0" text="Gravitational Acceleration (m/s^2):" wrapText="true" />
                               <Slider fx:id="slider_GravitationalAcceleration" maxHeight="-Infinity" prefHeight="50.0" showTickLabels="true" showTickMarks="true" />
                               <TextField fx:id="sliderTf_GravitationalAcceleration" prefHeight="25.0" prefWidth="35.0" />
                            </children>
