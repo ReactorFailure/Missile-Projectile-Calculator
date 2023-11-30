@@ -33,4 +33,4 @@ build/
 .gradle/
 
 # intellij stuff
-.iml
+*.iml
