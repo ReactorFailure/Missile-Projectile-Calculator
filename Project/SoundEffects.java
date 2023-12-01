@@ -15,7 +15,7 @@ import javafx.scene.media.MediaPlayer;
 public class SoundEffects {
 
     public static void rocketlaunch() {
-        String file = "src\\Project\\sound\\rocketlaunch.mp3";
+        String file = "Project\\sound\\rocketlaunch.mp3";
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
@@ -24,7 +24,7 @@ public class SoundEffects {
     }
 
     public static void oof() {
-        String file = "src\\Project\\sound\\oof.mp3";
+        String file = "Project\\sound\\oof.mp3";
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
@@ -33,7 +33,7 @@ public class SoundEffects {
     }
 
     public static void explosion() {
-        String file = "src\\Project\\sound\\explosion2.mp3";
+        String file = "Project\\sound\\explosion2.mp3";
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
@@ -42,7 +42,7 @@ public class SoundEffects {
     }
     
     public static void cbat() {
-        String file = "src\\Project\\sound\\cbat.mp3";
+        String file = "Project\\sound\\cbat.mp3";
         File soundFile = new File(file);
         Media media = new Media(soundFile.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);

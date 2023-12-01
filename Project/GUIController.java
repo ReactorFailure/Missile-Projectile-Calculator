@@ -308,6 +308,7 @@ public class GUIController {
         controller.animation();
 
         stage.setScene(new Scene(root));
+        stage.setMinWidth(500);
         stage.setTitle("Animation running");
         stage.show();
     }
@@ -318,8 +319,6 @@ public class GUIController {
 
         path.setControlX(((path.getEndX() + path.getStartX()) / 2));
         path.setControlY(physics.calcMaxHeight() / 2);
-
-        x_Axis.setEndX(path.getEndX());
     }
 
     public void onReturn(Physics phy) {

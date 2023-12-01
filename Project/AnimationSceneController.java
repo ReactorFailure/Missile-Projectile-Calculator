@@ -17,6 +17,9 @@ public class AnimationSceneController {
     Physics physics;
 
     @FXML
+    private ImageView backgroundImage;
+
+    @FXML
     private QuadCurve path;
 
     @FXML
@@ -39,7 +42,10 @@ public class AnimationSceneController {
         path.setControlX(((path.getEndX() + path.getStartX()) / 2));
         path.setControlY(physics.calcMaxHeight() / 2);
 
-        x_Axis.setEndX(path.getEndX());
+        if (x_Axis.getEndX() > 500) {
+            x_Axis.setEndX(path.getEndX());
+            backgroundImage.setFitWidth(path.getEndX() + 100);
+        }
 
         PathTransition transition = new PathTransition(Duration.seconds(physics.calcTime()), path);
         transition.setNode(rocket_Iv);
