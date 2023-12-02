@@ -31,6 +31,3 @@ hs_err_pid*
 bin/
 build/
 .gradle/
-
-# intellij stuff
-*.iml
