@@ -13,6 +13,9 @@ import javafx.scene.shape.QuadCurve;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * @author Zeyu Huang
+ */
 public class AnimationSceneController {
     Physics physics;
 
@@ -31,10 +34,23 @@ public class AnimationSceneController {
     @FXML
     private Line y_Axis;
 
+    /**
+     * This method imports the physic object from another class. It stores that
+     * object in the parameter physics of this class
+     * 
+     * @param physics The physic object
+     * @return Does not return anything
+     */
     public void setPhysics(Physics physics) {
         this.physics = physics;
     }
 
+    /**
+     * This method is used to play the animation of the rocket. It calls the
+     * returnMain() method once the animation finishes
+     * 
+     * @return Does no return anything
+     */
     public void animation() {
         path.setStartY(y_Axis.getEndY() - physics.heightOfLaunch);
         path.setEndX(physics.calcDistance() + x_Axis.getStartX());
@@ -64,7 +80,15 @@ public class AnimationSceneController {
         });
     }
 
-    public void returnMain(PathTransition pt) throws IOException {
+    /**
+     * This mathod changes the stage to the main stage. It is called after the
+     * animation has finished
+     * 
+     * @param pt Pathtransiton of the rocket
+     * @throws IOException When there is any IO errors
+     * @return Does not return anything
+     */
+    private void returnMain(PathTransition pt) throws IOException {
         Stage stage = (Stage) pt.getNode().getScene().getWindow();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GUI.fxml"));
