@@ -374,15 +374,19 @@ public class GUIController {
     }
 
     /**
-     * This mathod changes how the input interface looks like. Either from sliders
-     * to textfield of the other way around
+     * This mathod changes the display trajectory of the rocket.
      */
     public void changePane() {
         path.setStartY(y_Axis.getEndY() - physics.getHeightOfLaunch());
-        path.setEndX(physics.calcDistance() + x_Axis.getStartX());
+        path.setEndX(physics.calcDistance() + y_Axis.getEndX());
 
         path.setControlX(((path.getEndX() + path.getStartX()) / 2));
-        path.setControlY(physics.calcMaxHeight() / 2);
+        path.setControlY(y_Axis.getEndY() - physics.calcMaxHeight() - physics.getHeightOfLaunch());
+
+        System.out.println(path.getStartX() + " " + path.getStartY());
+        System.out.println(path.getControlX() + " " + path.getControlY());
+        System.out.println(path.getEndX() + " " + path.getEndY());
+        System.out.println();
     }
 
     /**

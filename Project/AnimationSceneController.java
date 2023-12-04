@@ -53,10 +53,10 @@ public class AnimationSceneController {
      */
     public void animation() {
         path.setStartY(y_Axis.getEndY() - physics.getHeightOfLaunch());
-        path.setEndX(physics.calcDistance() + x_Axis.getStartX());
+        path.setEndX(physics.calcDistance() + y_Axis.getLayoutX());
 
         path.setControlX(((path.getEndX() + path.getStartX()) / 2));
-        path.setControlY(physics.calcMaxHeight() / 2);
+        path.setControlY(y_Axis.getEndY() - physics.calcMaxHeight());
 
         if (path.getEndX() > 500) {
             x_Axis.setEndX(path.getEndX());
