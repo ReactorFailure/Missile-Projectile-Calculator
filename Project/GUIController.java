@@ -20,6 +20,10 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
 import javafx.stage.Stage;
 
+/**
+ * @author Zeyu Huang
+ */
+
 public class GUIController {
 
     // An array list of textfield and slider
@@ -105,8 +109,12 @@ public class GUIController {
     @FXML
     private Line y_Axis;
 
+    /**
+     * Clear every value given by user once the button is pressed
+     * 
+     * @param event The ActionEvent that the button produces
+     */
     @FXML
-    // Clear every value given by user
     void clearOnAction(ActionEvent event) {
         launchValues.clear();
 
@@ -121,14 +129,23 @@ public class GUIController {
         btn_Launch.setDisable(true);
     }
 
-    //Exit program
+    /**
+     * Exit program once the button is pressed
+     * 
+     * @param event The ActionEvent that the button produces
+     */
     @FXML
-    void exitOnAction(ActionEvent e) {
+    void exitOnAction(ActionEvent event) {
         Platform.exit();
     }
 
+    /**
+     * Starts the animation of the rocket once the button is pressed
+     * 
+     * @param event The ActionEvent that the button produces
+     * @throws IOException If any IO errors were to happen
+     */
     @FXML
-    // Starts the animation
     void launchOnAction(ActionEvent event) throws IOException {
         startAnimation(event);
 
@@ -136,6 +153,11 @@ public class GUIController {
         btn_Launch.setDisable(true);
     }
 
+    /**
+     * Changes the UI from textfield to slider.
+     * 
+     * @param event The ActionEvent that the button produces
+     */
     @FXML
     void switchSliderOnAction(ActionEvent event) {
         // Switch to other mode
@@ -151,6 +173,11 @@ public class GUIController {
 
     }
 
+    /**
+     * Changes the UI from slider to textfield.
+     * 
+     * @param event The ActionEvent that the button produces
+     */
     @FXML
     void switchTfOnAction(ActionEvent event) {
         // Switch to other mode
@@ -165,9 +192,14 @@ public class GUIController {
         }
     }
 
+    /**
+     * Changes the pane that shows the preview of the trajectory
+     * 
+     * @param event The ActionEvent that the button produces
+     */
     @FXML
     void updateOnAction(ActionEvent event) {
-        //reset launch values
+        // reset launch values
         launchValues.clear();
         // Check if its in textfield mode
         if (pane_TfMode.isVisible()) {
@@ -175,12 +207,12 @@ public class GUIController {
         } else {
             sliderMode();
         }
-        
+
     }
 
     @FXML
     void initialize() {
-        //adjusts textfields to show slider value
+        // adjusts textfields to show slider value
         sliderTf_AngleOfLaunch.textProperty().bind(
                 slider_AngleOfLaunch.valueProperty().asString("%.0f"));
         sliderTf_HeightOfLaunch.textProperty().bind(
@@ -221,7 +253,12 @@ public class GUIController {
         btn_Launch.setDisable(true);
     }
 
-    // To Check if a string is a number
+    /**
+     * To Check if the string is a number
+     * 
+     * @param str The string that we want to check
+     * @return True if the string is a number and false if it isn't
+     */
     private boolean isNumber(String str) {
         try {
             Double.parseDouble(str);
@@ -231,6 +268,12 @@ public class GUIController {
         return true;
     }
 
+    /**
+     * Run this method if the user sees the textfields.
+     * Add all the inputed values into a physics object and returns a message that
+     * the
+     * input is not within our range of values.
+     */
     private void tfMode() {
         // Verify that the textfield has only number
         for (TextField tf : array_TextFields) {
@@ -240,16 +283,22 @@ public class GUIController {
                 return;
             }
         }
-        //verify the constraints for the textfields
+
+        // verify the constraints for the textfields
         if (Integer.parseInt(tf_AngleOfLaunch.getText()) < 1 || Integer.parseInt(tf_AngleOfLaunch.getText()) > 89
-                || Double.parseDouble(tf_HeightOfLaunch.getText()) < 1 || Double.parseDouble(tf_HeightOfLaunch.getText()) > 100
-                || Double.parseDouble(tf_InitialVelocity.getText()) < 1 || Double.parseDouble(tf_InitialVelocity.getText()) > 100
-                || Double.parseDouble(tf_GravitationalAcceleration.getText()) < 1 || Double.parseDouble(tf_GravitationalAcceleration.getText()) > 15) {
-            ta_Messages.setText("Please set text fields to allowed values\nAngle:1-89, Height:1-100, Velocity:1-100, Gravitational Acceleration:1-15");
+                || Double.parseDouble(tf_HeightOfLaunch.getText()) < 1
+                || Double.parseDouble(tf_HeightOfLaunch.getText()) > 100
+                || Double.parseDouble(tf_InitialVelocity.getText()) < 1
+                || Double.parseDouble(tf_InitialVelocity.getText()) > 100
+                || Double.parseDouble(tf_GravitationalAcceleration.getText()) < 1
+                || Double.parseDouble(tf_GravitationalAcceleration.getText()) > 15) {
+            ta_Messages.setText(
+                    "Please set text fields to allowed values\nAngle:1-89, Height:1-100, Velocity:1-100, Gravitational Acceleration:1-15");
             btn_Launch.setDisable(true);
             SoundEffects.oof();
             return;
         }
+
         // Clear the messages if everything is fine
         ta_Messages.setText("");
 
@@ -268,6 +317,12 @@ public class GUIController {
         btn_Launch.setDisable(false);
     }
 
+    /**
+     * Run this method if the user sees the sliders.
+     * Add all the inputed values into a physics object and returns a message that
+     * the
+     * input is not within our range of values.
+     */
     private void sliderMode() {
         // Verify that the textfield has only number
         for (Slider sliders : array_Sliders) {
@@ -294,9 +349,15 @@ public class GUIController {
         btn_Launch.setDisable(false);
     }
 
-    // Creates another scene and makes it appear on stage
-    private void startAnimation(ActionEvent e) throws IOException {
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+    /**
+     * This method switches the scene. It goes from the current scene to the scene
+     * of the animation
+     * 
+     * @param event The ActionEvent used for getting the stage our scene is from
+     * @throws IOException If there is any IO problems
+     */
+    private void startAnimation(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AnimationScene.fxml"));
         Parent root = loader.load();
@@ -312,6 +373,10 @@ public class GUIController {
         stage.show();
     }
 
+    /**
+     * This mathod changes how the input interface looks like. Either from sliders
+     * to textfield of the other way around
+     */
     public void changePane() {
         path.setStartY(y_Axis.getEndY() - physics.getHeightOfLaunch());
         path.setEndX(physics.calcDistance() + x_Axis.getStartX());
@@ -320,6 +385,13 @@ public class GUIController {
         path.setControlY(physics.calcMaxHeight() / 2);
     }
 
+    /**
+     * This method updates the textArea under the main GUI. It tells the user
+     * information about the path of the rocket.
+     * 
+     * @param phy The physics object used in order to find the information of the
+     *            rocket.
+     */
     public void onReturn(Physics phy) {
         //to display the previous used launch values
         this.launchValues = phy.getLaunchValues();
@@ -327,7 +399,8 @@ public class GUIController {
             array_TextFields.get(i).setText(String.format("%.0f", launchValues.get(i)));
         }
 
-        String str = String.format("The rocket traveled a distance of %.2f meters in %.2f seconds\n", phy.calcDistance(), phy.calcTime());
+        String str = String.format("The rocket traveled a distance of %.2f meters in %.2f seconds\n",
+                phy.calcDistance(), phy.calcTime());
         str += String.format("The max height reached was %.2f meters", phy.calcMaxHeight());
 
         ta_Messages.setText(str);
