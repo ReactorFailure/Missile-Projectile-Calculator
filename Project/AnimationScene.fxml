@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="523.0" fitWidth="563.0" pickOnBounds="true">
          <image>
-            <Image url="@img/Sometimes_a_warcriminal.png" />
+            <Image url="@img/space.jpg" />
          </image>
       </ImageView>
       <Line endX="500.0" layoutX="50.0" layoutY="500.0" style="-fx-stroke-width: 5;" fx:id="x_Axis" />

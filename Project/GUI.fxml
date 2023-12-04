@@ -22,7 +22,7 @@
          <children>
             <ImageView fitHeight="414.0" fitWidth="559.0" pickOnBounds="true">
                <image>
-                  <Image url="@img/Sometimes_a_warcriminal.png" />
+                  <Image url="@img/space.jpg" />
                </image>
             </ImageView>
             <Line fx:id="y_Axis" endX="50.0" endY="400.0" startX="50.0" startY="50.0" style="-fx-stroke-width: 5;" />
