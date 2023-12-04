@@ -166,7 +166,6 @@ public class GUIController {
     }
 
     @FXML
-
     void updateOnAction(ActionEvent event) {
         //reset launch values
         launchValues.clear();
@@ -314,7 +313,7 @@ public class GUIController {
     }
 
     public void changePane() {
-        path.setStartY(y_Axis.getEndY() - physics.heightOfLaunch);
+        path.setStartY(y_Axis.getEndY() - physics.getHeightOfLaunch());
         path.setEndX(physics.calcDistance() + x_Axis.getStartX());
 
         path.setControlX(((path.getEndX() + path.getStartX()) / 2));
@@ -323,7 +322,7 @@ public class GUIController {
 
     public void onReturn(Physics phy) {
         //to display the previous used launch values
-        this.launchValues = phy.launchValues;
+        this.launchValues = phy.getLaunchValues();
         for (int i = 0; i < array_TextFields.size(); i++) {
             array_TextFields.get(i).setText(String.format("%.0f", launchValues.get(i)));
         }

@@ -36,7 +36,7 @@ public class AnimationSceneController {
     }
 
     public void animation() {
-        path.setStartY(y_Axis.getEndY() - physics.heightOfLaunch);
+        path.setStartY(y_Axis.getEndY() - physics.getHeightOfLaunch());
         path.setEndX(physics.calcDistance() + x_Axis.getStartX());
 
         path.setControlX(((path.getEndX() + path.getStartX()) / 2));

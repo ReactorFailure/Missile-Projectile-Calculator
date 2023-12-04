@@ -2,10 +2,55 @@ package Project;
 
 import java.util.ArrayList;
 
-public class Physics {
-    double angleOfLaunch, gravAcceleration, heightOfLaunch, initialVelocity;
-    ArrayList<Double> launchValues;
+// Prototype design pattern
+public class Physics implements Cloneable{
+    private double angleOfLaunch;
+    private double gravAcceleration;
+    private double heightOfLaunch;
+    private double initialVelocity;
+    private ArrayList<Double> launchValues;
 
+    //setters and getters of angle of launch
+    public double getAngleOfLaunch() {
+        return launchValues.get(0);
+    }
+    public void setAngleOfLaunch(double angleOfLaunch) {
+        this.angleOfLaunch = launchValues.set(0, angleOfLaunch);
+    }
+
+    //setters and getters of gravitational acceleration
+    public double getGravAcceleration() {
+        return launchValues.get(1);
+    }
+    public void setGravAcceleration(double gravAcceleration) {
+        this.gravAcceleration = launchValues.set(1, gravAcceleration);
+    }
+
+    //setters and getters of height of launch
+    public double getHeightOfLaunch() {
+        return launchValues.get(2);
+    }
+    public void setHeightOfLaunch(double heightOfLaunch) {
+        this.heightOfLaunch = launchValues.set(2, heightOfLaunch);
+    }
+
+    //setters and getters of initial velocity
+    public double getInitialVelocity() {
+        return launchValues.get(3);
+    }
+    public void setInitialVelocity(double initialVelocity) {
+        this.initialVelocity = launchValues.set(3, initialVelocity);
+    }
+
+    //setters and getters of launch values
+    public ArrayList<Double> getLaunchValues() {
+        return launchValues;
+    }
+    public void setLaunchValues(ArrayList<Double> launchValues) {
+        this.launchValues = launchValues;
+    }
+
+    //Physics constructor
     public Physics(ArrayList<Double> launchValues) {
         this.angleOfLaunch = launchValues.get(0);
         this.gravAcceleration = launchValues.get(1);
@@ -13,6 +58,19 @@ public class Physics {
         this.initialVelocity = launchValues.get(3);
         
         this.launchValues = launchValues;
+    }
+
+    //For cloneing prototype
+    //200,000 units are ready, with a million more well on the way
+    //Magnificent, aren't they?
+    @Override
+    public Physics clone() {
+        try {
+            Physics clone = (Physics) super.clone();
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 
     // Calculate time until the missile hits target
@@ -23,7 +81,7 @@ public class Physics {
         double vi = this.initialVelocity;
         double yi = this.heightOfLaunch;
         
-        double radians = Math.PI*angle/180;
+        double radians = (Math.PI*angle)/180;
         double viY = vi*Math.sin(radians);
         
         double time = (viY+(Math.sqrt(viY*viY+2*a*yi)))/a;
@@ -39,7 +97,7 @@ public class Physics {
         double vi = this.initialVelocity;
         double yi = this.heightOfLaunch;
         
-        double radians = Math.PI*angle/180;
+        double radians = (Math.PI*angle)/180;
         double viY = vi*Math.sin(radians);
         
         double maxHeight = (yi+(viY*viY))/(2*a);
@@ -63,5 +121,4 @@ public class Physics {
 
         return distance;
     }
-
 }
