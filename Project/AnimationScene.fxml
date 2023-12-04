@@ -16,7 +16,7 @@
       <Line endX="500.0" layoutX="50.0" layoutY="500.0" style="-fx-stroke-width: 5;" fx:id="x_Axis" />
       <Line fx:id="y_Axis" endY="450.0" layoutX="50.0" layoutY="50.0" style="-fx-stroke-width: 5;" />
       <QuadCurve fx:id="path" controlX="300.0" controlY="150.0" endX="550.0" endY="500.0" fill="#1f93ff00" startX="50.0" startY="500.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-      <ImageView fx:id="rocket_Iv" fitHeight="93.0" fitWidth="102.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="400.0">
+      <ImageView fx:id="rocket_Iv" fitHeight="37.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" x="50.0" y="400.0">
          <image>
             <Image url="@img/rocket.png" />
          </image>

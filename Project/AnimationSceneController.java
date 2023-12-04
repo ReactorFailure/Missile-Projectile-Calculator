@@ -2,11 +2,13 @@ package Project;
 
 import java.io.IOException;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.QuadCurve;
@@ -72,11 +74,26 @@ public class AnimationSceneController {
 
         transition.setOnFinished(e -> {
             SoundEffects.explosion();
+            Image image = new Image("Project//img//explison.png");
+            backgroundImage.setImage(image);
+
+            FadeTransition ft = new FadeTransition(Duration.seconds(2));
+            ft.setNode(backgroundImage);
+            ft.setFromValue(0);
+            ft.setToValue(1);
+            ft.setAutoReverse(true);
+            ft.setCycleCount(2);
+
+            ft.play();
+
+            ft.setOnFinished(e2 -> {
             try {
                 returnMain(transition);
             } catch (IOException e1) {
                 System.out.println("Big probemo");
             }
+
+            });
         });
     }
 
