@@ -58,7 +58,7 @@ public class AnimationSceneController {
         path.setControlX(((path.getEndX() + path.getStartX()) / 2));
         path.setControlY(physics.calcMaxHeight() / 2);
 
-        if (x_Axis.getEndX() > 500) {
+        if (path.getEndX() > 500) {
             x_Axis.setEndX(path.getEndX());
             backgroundImage.setFitWidth(path.getEndX() + 100);
         }

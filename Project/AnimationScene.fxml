@@ -8,9 +8,9 @@
 
 <Pane id="background" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project.AnimationSceneController">
    <children>
-      <ImageView fitHeight="523.0" fitWidth="563.0" pickOnBounds="true">
+      <ImageView fx:id="backgroundImage" fitHeight="523.0" fitWidth="700.0" pickOnBounds="true">
          <image>
-            <Image url="@img/space.jpg" />
+            <Image url="@img/desert.jpg" />
          </image>
       </ImageView>
       <Line endX="500.0" layoutX="50.0" layoutY="500.0" style="-fx-stroke-width: 5;" fx:id="x_Axis" />
