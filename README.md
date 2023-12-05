@@ -8,10 +8,8 @@ This program simulates an angled projectile motion of a missile when the user in
     * [Launching the missile](#launching-missile)
 <!--te-->
 
-<a name="how-to-use-program">
 ## How to use the program
 
-<a name="logging-in">
 ### Logging in 
 Once you open the program, you are greeted with this screen:
 ![image](https://github.com/ReactorFailure/Missile-Projectile-Calculator/assets/69980969/095dc4c0-cca5-450c-8049-f7197fe31a94)
@@ -21,7 +19,6 @@ To login, enter these credentials:
 **Password:** `givefreerobux7`
 You can always press the `Hint` button to find these credentials anytime.
 
-<a name="launching-missile">
 ### Launching the missile
 To launch your missile, you will need to input values into the text fields. After inputting the fields, you will then have to press the `Update` button then press the `Launch` button.
 > [!IMPORTANT]
