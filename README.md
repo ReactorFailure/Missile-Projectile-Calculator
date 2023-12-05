@@ -10,7 +10,7 @@ This program simulates an angled projectile motion of a missile when the user in
 
 ## How to use the program
 
-> ### Logging in 
+### Logging in 
 Once you open the program, you are greeted with this screen:
 ![image](https://github.com/ReactorFailure/Missile-Projectile-Calculator/assets/69980969/095dc4c0-cca5-450c-8049-f7197fe31a94)
 
@@ -19,7 +19,8 @@ To login, enter these credentials:
 **Password:** `givefreerobux7`
 You can always press the `Hint` button to find these credentials anytime.
 
-> ### Launching the missile
+
+### Launching the missile
 To launch your missile, you will need to input values into the text fields. After inputting the fields, you will then have to press the `Update` button then press the `Launch` button.
 > [!IMPORTANT]
 > The text fields will NOT accept negative numbers. You do not need to put a negative number for the gravitational acceleration.
