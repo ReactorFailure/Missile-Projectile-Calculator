@@ -5,7 +5,7 @@ This program simulates an angled projectile motion of a missile when the user in
 <!--ts-->
   * [How to use the program](#how-to-use-program)
     * [Logging in](#logging-in)
-    * [Launching the missile](#launching-missile)
+    * [Launching the missile](#launching-the-missile)
 <!--te-->
 
 ## How to use the program
