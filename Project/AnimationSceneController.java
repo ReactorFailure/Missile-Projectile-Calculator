@@ -65,7 +65,7 @@ public class AnimationSceneController {
             backgroundImage.setFitWidth(path.getEndX() + 100);
         }
 
-        PathTransition transition = new PathTransition(Duration.seconds(physics.calcTime()), path);
+        PathTransition transition = new PathTransition(Duration.seconds(physics.calcTime() / 5), path);
         transition.setNode(rocket_Iv);
         transition.setCycleCount(1);
         transition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);

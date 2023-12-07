@@ -383,10 +383,10 @@ public class GUIController {
         path.setControlX(((path.getEndX() + path.getStartX()) / 2));
         path.setControlY(y_Axis.getEndY() - physics.calcMaxHeight() - physics.getHeightOfLaunch());
 
-        System.out.println(path.getStartX() + " " + path.getStartY());
-        System.out.println(path.getControlX() + " " + path.getControlY());
-        System.out.println(path.getEndX() + " " + path.getEndY());
-        System.out.println();
+        // System.out.println(path.getStartX() + " " + path.getStartY());
+        // System.out.println(path.getControlX() + " " + path.getControlY());
+        // System.out.println(path.getEndX() + " " + path.getEndY());
+        // System.out.println();
     }
 
     /**

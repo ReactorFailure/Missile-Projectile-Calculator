@@ -6,6 +6,7 @@ This program simulates an angled projectile motion of a missile when the user in
   * [How to use the program](#how-to-use-program)
     * [Logging in](#logging-in)
     * [Launching the missile](#launching-the-missile)
+  * [Troubleshoot](#troubleshooting)
 <!--te-->
 
 ## How to use the program
@@ -29,3 +30,14 @@ To launch your missile, you will need to input values into the text fields. Afte
 ![image](https://github.com/ReactorFailure/Missile-Projectile-Calculator/assets/69980969/7606f302-2735-4829-ac6f-bf47cffaa860)
 
 After launching the missile, the calculated result will show on the text area on the bottom of the window.
+
+## Troubleshooting
+In the login screen, if you are not able to log in, press the hint button to get acess to the username and password.
+
+Make sure your textfields values in the program are only the following values:
+- The `Angle of launch` textfield accepts values from 1-89 (in degrees)
+- The `Height of launch` textfield accepts values from 1-100
+- The `Inital velocity` textfield accepts values from 1-100
+- The `Gravitaional acceleration` textfield accepts values from 1-15 (you do not need to put a negative value)
+
+If any problem persist, please contact Joe. Who's Joe? Joe Mama hahahahahaha.
